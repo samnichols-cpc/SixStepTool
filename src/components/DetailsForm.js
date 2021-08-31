@@ -75,6 +75,7 @@ class DetailsForm extends React.Component{
                 <input type="text" name="jobTitle"value={this.state.jobTitle} onChange={this.handleChange}></input>
                 <button onClick={this.handleSubmit}>Submit</button>
             </form>
+        
         )
     }
 }

@@ -2,6 +2,18 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
+button #back{
+    display:inline !important;
+}
+#question{
+    padding:20px;
+    display:inline;
+}
+#answer{
+    display:block!important;
+    margin:10px;
+}
 #slideable{
     -webkit-transition : all 2s ease; 
     -moz-transition : all 2s ease;
@@ -9,7 +21,11 @@ body{
     -ms-transition : all 2s ease;  
     transition : all 2s ease;
     height: 200px;
-    width:30%;
+    height:30%;
+    width:50%;
     position:absolute;
-
+    overflow-x: hidden;
+    overflow-y: hidden;
+    left: 25%;
+    right: 25%;
 }

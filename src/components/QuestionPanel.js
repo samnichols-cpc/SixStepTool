@@ -18,11 +18,13 @@ const questions = [
 class QuestionPanel extends React.Component{
     render(){
         return (
-            <div id="slideable" style={{left:positions[this.props.panelProperties.position]+"%",visibility:(this.props.panelProperties.visible ? "visible":"hidden")}}>
-                <h1 style={{visibility:(this.props.panelProperties.visible ? "visible":"hidden")}}>{questions[this.props.panelProperties.question].title}</h1>
-                <button onClick={this.props.goBackQuestion} style={{visibility:(this.props.panelProperties.visible ? "visible":"hidden")}}>Back</button>
+            <div id="slideable" style={{top:positions[this.props.panelProperties.position]+"%",visibility:(this.props.panelProperties.visible ? "visible":"hidden")}}>
+                <div>
+                    <button  id="back" className="ui inverted primary button" onClick={this.props.goBackQuestion} style={{visibility:(this.props.panelProperties.visible ? "visible":"hidden")}}>Back</button>
+                    <h1 id="question" style={{visibility:(this.props.panelProperties.visible ? "visible":"hidden"), textAlign: "center"}}>{questions[this.props.panelProperties.question].title}</h1>
+                </div>
                 {questions[this.props.panelProperties.question].answers.map((answer, i) => {     
-                    return (<button key={i} onClick={() => this.props.setNextQuestion(answer[1])}style={{visibility:(this.props.panelProperties.visible ? "visible":"hidden")}}>{answer[0]}</button>) 
+                    return (<button id="answer" className="ui inverted primary button" key={i} onClick={() => this.props.setNextQuestion(answer[1])}style={{visibility:(this.props.panelProperties.visible ? "visible":"hidden")}}>{answer[0]}</button>) 
                 })}
             </div>  
         )

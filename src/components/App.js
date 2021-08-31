@@ -21,9 +21,9 @@ class App extends React.Component{
                 visible:true
             },
             panel2:{
-                position:1,
-                question:7,
-                visible:true
+                position:0,
+                question:0,
+                visible:true,
             },
             panel3:{
                 position:2,
@@ -37,7 +37,18 @@ class App extends React.Component{
 
     updateDetails = (details) => {
         this.setState({details})
-        setTimeout(()=>{this.setNextQuestion(0)},100)
+        setTimeout(()=>{this.setFirstQuestion(0)},100)
+    }
+
+    setFirstQuestion = () =>{
+        this.history.push(0)
+        this.setState((prevState)=> {
+            return {
+                panel1: {position:2, question:prevState.panel1.question, visible:false},
+                panel2: {position:0, question:0, visible:true},
+                panel3: {position:1, question:prevState.panel3.question, visible:true}
+            }
+        })
     }
 
     setNextQuestion = (nextQuestion) =>{
