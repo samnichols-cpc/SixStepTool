@@ -1,5 +1,6 @@
 import React from "react";
 import DetailsForm from "./DetailsForm";
+import EmailForm from "./EmailForm";
 import LocationForm from "./LocationForm";
 
 const questions = [
@@ -110,7 +111,8 @@ const questions = [
 
 class Panel extends React.Component {
   render() {
-    if (this.props.panelProperties.question == -2)
+    console.log(this.props.panelProperties.question);
+    if (this.props.panelProperties.question == -5)
       return (
         <DetailsForm
           panelProperties={this.props.panelProperties}
@@ -120,9 +122,19 @@ class Panel extends React.Component {
         />
       );
 
-    if (this.props.panelProperties.question == -1)
+    if (this.props.panelProperties.question == -4)
       return (
         <LocationForm
+          panelProperties={this.props.panelProperties}
+          details={this.props.details}
+          goBackQuestion={this.props.goBackQuestion}
+          updateHistory={this.props.updateHistory}
+          setNextQuestion={this.props.setNextQuestion}
+        />
+      );
+    if (this.props.panelProperties.question == -3)
+      return (
+        <EmailForm
           panelProperties={this.props.panelProperties}
           details={this.props.details}
           goBackQuestion={this.props.goBackQuestion}

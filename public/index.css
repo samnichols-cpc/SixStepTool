@@ -55,6 +55,16 @@
   left: 10%;
   top: 20%;
 }
+#emailInput {
+  position: absolute;
+  top: 45%;
+  left: 10%;
+}
+#confirmEmailInput {
+  position: absolute;
+  top: 45%;
+  right: 10%;
+}
 #inputs {
   background-color: #ededed;
   border-radius: 20px;

@@ -1,6 +1,6 @@
 import React from "react";
 
-class DetailsForm extends React.Component {
+class EmailForm extends React.Component {
   constructor() {
     super();
 
@@ -33,39 +33,14 @@ class DetailsForm extends React.Component {
   };
 
   checkInputs = () => {
-    const firstNameRegex = new RegExp("^[a-z,.'-]+$", "i");
-    const surnameRegex = new RegExp("^[a-z,.'-]+$", "i");
+    const emailRegex = new RegExp("^[a-z,.'-]+$", "i");
 
     let inputsValid = true;
-    if (!firstNameRegex.test(this.state.details.firstName)) {
+    if (!emailRegex.test(this.state.details.email)) {
       inputsValid = false;
       this.setState((prevState) => ({
         ...prevState,
-        errors: { ...prevState.errors, firstName: "Input is not valid" },
-      }));
-    }
-    if (!surnameRegex.test(this.state.details.surname)) {
-      inputsValid = false;
-      this.setState((prevState) => ({
-        ...prevState,
-        errors: { ...prevState.errors, lastName: "Input is not valid" },
-      }));
-    }
-    if (this.state.details.companyName.length == 0) {
-      inputsValid = false;
-      this.setState((prevState) => ({
-        ...prevState,
-        errors: {
-          ...prevState.errors,
-          companyName: "This is a required field",
-        },
-      }));
-    }
-    if (this.state.details.jobTitle.length == 0) {
-      inputsValid = false;
-      this.setState((prevState) => ({
-        ...prevState,
-        errors: { ...prevState.errors, jobTitle: "This is a required field" },
+        errors: { ...prevState.errors, email: "Input is not valid" },
       }));
     }
     this.setState((prevState) => ({
@@ -79,7 +54,7 @@ class DetailsForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.checkInputs()) {
-      this.props.setNextQuestion(-4);
+      this.props.setNextQuestion(-1);
       this.props.updateDetails(this.state.details);
     }
   };
@@ -162,7 +137,7 @@ class DetailsForm extends React.Component {
           }}
         >
           <div
-            id="firstNameInput"
+            id="emailInput"
             className="inputDiv"
             style={{
               visibility: this.props.panelProperties.visible
@@ -173,10 +148,10 @@ class DetailsForm extends React.Component {
             <input
               className="inputs"
               type="text"
-              name="firstName"
+              name="email"
               value={this.state.firstName}
               onChange={this.handleChange}
-              placeholder="First Name*"
+              placeholder="Email*"
               autoComplete="off"
               style={{
                 visibility: this.props.panelProperties.visible
@@ -193,14 +168,14 @@ class DetailsForm extends React.Component {
               }}
             />
           </div>
-          <div id="surnameInput" className="inputDiv">
+          <div id="confirmEmailInput" className="inputDiv">
             <input
               className="inputs"
               type="text"
-              name="surname"
+              name="confirmEmail"
               value={this.state.surname}
               onChange={this.handleChange}
-              placeholder="Surname*"
+              placeholder="Confirm Email*"
               autoComplete="off"
               style={{
                 visibility: this.props.panelProperties.visible
@@ -210,62 +185,7 @@ class DetailsForm extends React.Component {
             />
             <div className="upwardSlide" />
           </div>
-          <div id="jobTitleInput" className="inputDiv">
-            <input
-              className="inputs"
-              type="text"
-              name="jobTitle"
-              value={this.state.jobTitle}
-              onChange={this.handleChange}
-              placeholder="Job Title*"
-              autoComplete="off"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
-            <div
-              className="upwardSlide"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
-          </div>
-          <div
-            id="companyNameInput"
-            className="inputDiv"
-            style={{
-              visibility: this.props.panelProperties.visible
-                ? "visible"
-                : "hidden",
-            }}
-          >
-            <input
-              className="inputs"
-              type="text"
-              name="companyName"
-              value={this.state.companyName}
-              onChange={this.handleChange}
-              placeholder="Company Name*"
-              autoComplete="off"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
-            <div
-              className="upwardSlide"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
-          </div>
+
           <button
             id="submitForm"
             onClick={this.handleSubmit}
@@ -283,4 +203,4 @@ class DetailsForm extends React.Component {
   }
 }
 
-export default DetailsForm;
+export default EmailForm;

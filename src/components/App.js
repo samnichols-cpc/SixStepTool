@@ -23,12 +23,12 @@ class App extends React.Component {
       },
       panel2: {
         position: 1,
-        question: -2,
+        question: -5,
         visible: true,
       },
       panel3: {
         position: 2,
-        question: -1,
+        question: -4,
         visible: false,
       },
     };
@@ -39,51 +39,21 @@ class App extends React.Component {
   updateDetails = (details) => {
     this.setState((prevState) => {
       return {
+        ...prevState,
         details,
-        panel1: {
-          position: 2,
-          question: prevState.panel1.question,
-          visible: false,
-        },
-        panel2: { position: 0, question: -2, visible: true },
-        panel3: {
-          position: 1,
-          question: -1,
-          visible: true,
-        },
       };
     });
-    // setTimeout(() => {
-    //   this.setFirstQuestion(0);
-    // }, 100);
   };
 
   updateHistory = (oldPage) => {
     this.history.push(oldPage);
   };
 
-  setFirstQuestion = () => {
-    this.history.push(0);
-    this.setState((prevState) => {
-      return {
-        panel1: {
-          position: 2,
-          question: prevState.panel1.question,
-          visible: false,
-        },
-        panel2: { position: 0, question: 0, visible: true },
-        panel3: {
-          position: 1,
-          question: prevState.panel3.question,
-          visible: true,
-        },
-      };
-    });
-  };
-
   setNextQuestion = (nextQuestion) => {
     if (typeof nextQuestion == "string") {
       this.setState({ level: parseInt(nextQuestion[1]) });
+      this.setNextQuestion(-3);
+      return;
     }
     this.history.push(nextQuestion);
     if (this.state.panel1.position == 1) {
@@ -279,45 +249,38 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {this.state.level == 0 ? (
-          <div>
-            <ScrollingPanel panelProperties={this.state.panel1}>
-              <Panel
-                details={this.state.details}
-                panelProperties={this.state.panel1}
-                setNextQuestion={this.setNextQuestion}
-                goBackQuestion={this.goBackQuestion}
-                setFirstQuestion={this.setFirstQuestion}
-                updateDetails={this.updateDetails}
-                updateHistory={this.updateHistory}
-              />
-            </ScrollingPanel>
-            <ScrollingPanel panelProperties={this.state.panel2}>
-              <Panel
-                details={this.state.details}
-                panelProperties={this.state.panel2}
-                setNextQuestion={this.setNextQuestion}
-                goBackQuestion={this.goBackQuestion}
-                setFirstQuestion={this.setFirstQuestion}
-                updateDetails={this.updateDetails}
-                updateHistory={this.updateHistory}
-              />
-            </ScrollingPanel>
-            <ScrollingPanel panelProperties={this.state.panel3}>
-              <Panel
-                details={this.state.details}
-                panelProperties={this.state.panel3}
-                setNextQuestion={this.setNextQuestion}
-                goBackQuestion={this.goBackQuestion}
-                setFirstQuestion={this.setFirstQuestion}
-                updateDetails={this.updateDetails}
-                updateHistory={this.updateHistory}
-              />
-            </ScrollingPanel>
-          </div>
-        ) : (
-          <h1>{`You will recieve an email telling you your organisation is Level ${this.state.level}`}</h1>
-        )}
+        <div>
+          <ScrollingPanel panelProperties={this.state.panel1}>
+            <Panel
+              details={this.state.details}
+              panelProperties={this.state.panel1}
+              setNextQuestion={this.setNextQuestion}
+              goBackQuestion={this.goBackQuestion}
+              updateDetails={this.updateDetails}
+              updateHistory={this.updateHistory}
+            />
+          </ScrollingPanel>
+          <ScrollingPanel panelProperties={this.state.panel2}>
+            <Panel
+              details={this.state.details}
+              panelProperties={this.state.panel2}
+              setNextQuestion={this.setNextQuestion}
+              goBackQuestion={this.goBackQuestion}
+              updateDetails={this.updateDetails}
+              updateHistory={this.updateHistory}
+            />
+          </ScrollingPanel>
+          <ScrollingPanel panelProperties={this.state.panel3}>
+            <Panel
+              details={this.state.details}
+              panelProperties={this.state.panel3}
+              setNextQuestion={this.setNextQuestion}
+              goBackQuestion={this.goBackQuestion}
+              updateDetails={this.updateDetails}
+              updateHistory={this.updateHistory}
+            />
+          </ScrollingPanel>
+        </div>
       </div>
     );
   }

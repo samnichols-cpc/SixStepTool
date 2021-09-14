@@ -39,7 +39,7 @@ class LocationForm extends React.Component {
 
   render() {
     return (
-      <form>
+      <form autoComplete="off">
         <div
           id="locationHeader"
           style={{
@@ -132,6 +132,7 @@ class LocationForm extends React.Component {
                 type="text"
                 placeholder="Search.."
                 id="myInput"
+                autoComplete="off"
                 onChange={(event) => {
                   this.setState({ searchValue: event.target.value });
                 }}
