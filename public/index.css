@@ -1,3 +1,36 @@
+@media (min-width: 0px) {
+  #slideable {
+    height: 100%;
+    width: 100%;
+  }
+}
+@media (min-width: 700px) {
+  #slideable {
+    height: 75%;
+    width: 80%;
+    left: 10%;
+    right: 10%;
+  }
+}
+@media (min-width: 1120px) {
+  #slideable {
+    height: 50%;
+    left: 25%;
+    right: 25%;
+    width: 50%;
+  }
+}
+#slideable {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: absolute;
+  webkit-transition: all 2s ease;
+  moz-transition: all 2s ease;
+  ms-transition: all 2s ease;
+  o-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
 #answer:hover {
   background-color: #feaf9b;
 }
@@ -90,20 +123,7 @@
 #answer:hover {
   background-color: #feaf9b !important;
 }
-#slideable {
-  height: 50%;
-  left: 25%;
-  moz-transition: all 2s ease;
-  ms-transition: all 2s ease;
-  o-transition: all 2s ease;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  position: absolute;
-  right: 25%;
-  transition: all 2s ease;
-  webkit-transition: all 2s ease;
-  width: 50%;
-}
+
 #submitForm {
   background-color: #fc5e36;
   bottom: 15%;
