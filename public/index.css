@@ -1,6 +1,5 @@
-#answer {
-  display: block !important;
-  margin: 10px;
+#answer:hover {
+  background-color: #feaf9b;
 }
 #companyNameInput {
   bottom: 40%;
@@ -20,7 +19,7 @@
 }
 #inputs {
   background-color: #ededed;
-  border-radius: 10px;
+  border-radius: 20px;
   bottom: 0px;
   height: 68%;
   padding: 10px;
@@ -34,6 +33,62 @@
 #question {
   display: inline;
   padding: 20px;
+}
+#questionHeader {
+  position: absolute;
+  height: 20%;
+  width: 100%;
+}
+#questionHeader button {
+  position: absolute;
+  width: 15%;
+  height: 30%;
+  top: 25%;
+  left: 80%;
+  background-color: #fc5e36;
+  text-align: center;
+  border: solid #fc5e36;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+#questionContent {
+  position: absolute;
+  height: 80%;
+  top: 20%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #ededed;
+}
+#questionTitle {
+  position: absolute;
+  height: 20%;
+  width: 90%;
+  top: 5%;
+  left: 5%;
+  border-radius: 10px;
+  background-color: #dbdbdb;
+}
+#questionNumber {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #fc5e36;
+  text-align: center;
+  padding-top: 2px;
+}
+#questionText {
+  position: absolute;
+  left: 70px;
+  font-weight: bold;
+  padding: 10px;
+}
+#answer:hover {
+  background-color: #feaf9b !important;
 }
 #slideable {
   height: 50%;
@@ -96,13 +151,10 @@ button #back {
   display: inline !important;
 }
 form {
-  bottom: 20%;
-  height: 60%;
-  left: 25%;
+  height: 100%;
   position: absolute;
-  right: 25%;
-  top: 20%;
-  width: 50%;
+  width: 100%;
+  height: 100%;
 }
 
 .inputDiv {
@@ -170,4 +222,93 @@ form {
 #submitForm:hover {
   background-color: #feaf9b;
   cursor: pointer;
+}
+#submitForm:focus {
+  background-color: #feaf9b;
+  outline: none;
+}
+#locationHeader {
+  position: relative;
+  width: 100%;
+  height: 20%;
+  justify-content: center;
+}
+#locationHeader button {
+  position: absolute;
+  width: 15%;
+  height: 30%;
+  top: 25%;
+  left: 80%;
+  background-color: #fc5e36;
+  text-align: center;
+  border: solid #fc5e36;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+}
+#locationHeader button:hover {
+  background-color: #feaf9b;
+}
+
+#locationInputs {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  background-color: #dbdbdb;
+  border-radius: 20px;
+  padding: 20px;
+}
+#hello {
+  width: 100%;
+  height: 15%;
+}
+#locationInput {
+  width: 100%;
+  height: 15%;
+  display: inline;
+}
+#locationInput h3 {
+  width: fit-content;
+  display: inline;
+  margin: 0;
+}
+#locationInput i {
+  display: inline;
+  cursor: pointer;
+}
+#locationDropdown {
+  position: relative;
+  width: 100%;
+  height: 55%;
+}
+#locationDropdown div {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 45%;
+  background-color: white;
+  opacity: 0.7;
+  transition-timing-function: ease;
+  border: 2px;
+  overflow-y: scroll;
+}
+#locationDropdown div input {
+  display: block;
+  width: 100%;
+  padding: 5px;
+}
+#locationDropdown div a {
+  color: black;
+  display: block;
+  width: 100%;
+  padding: 2px;
+  cursor: pointer;
+  border: solid #ededed;
+}
+#locationDropdown div a:hover {
+  background-color: #ededed;
+}
+#locationNext {
+  width: 100%;
+  height: 15%;
 }

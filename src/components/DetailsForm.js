@@ -79,26 +79,73 @@ class DetailsForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.checkInputs()) {
-      setTimeout(() => {
-        this.props.updateDetails(this.state.details);
-      }, 50);
+      this.props.setNextQuestion(-1);
+      this.props.updateDetails(this.state.details);
     }
   };
 
   render() {
     return (
       <form>
-        <div id="header">
-          <div id="titleDiv">
-            <div id="title">
-              <h1>
+        <div
+          id="header"
+          style={{
+            visibility: this.props.panelProperties.visible
+              ? "visible"
+              : "hidden",
+          }}
+        >
+          <div
+            id="titleDiv"
+            style={{
+              visibility: this.props.panelProperties.visible
+                ? "visible"
+                : "hidden",
+            }}
+          >
+            <div
+              id="title"
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
+            >
+              <h1
+                style={{
+                  visibility: this.props.panelProperties.visible
+                    ? "visible"
+                    : "hidden",
+                }}
+              >
                 Find out where your location is on its innovation journey.
               </h1>
-              <div id="titleDownwardSlide" />
+              <div
+                id="titleDownwardSlide"
+                style={{
+                  visibility: this.props.panelProperties.visible
+                    ? "visible"
+                    : "hidden",
+                }}
+              />
             </div>
           </div>
-          <div id="descriptionDiv">
-            <p id="description">
+          <div
+            id="descriptionDiv"
+            style={{
+              visibility: this.props.panelProperties.visible
+                ? "visible"
+                : "hidden",
+            }}
+          >
+            <p
+              id="description"
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
+            >
               If you lead or are involved in a particular neighbourhood or place
               that is or can become a hub of innovation. In three simple steps
               we will assess where you are up to, and discover what priorities
@@ -106,8 +153,23 @@ class DetailsForm extends React.Component {
             </p>
           </div>
         </div>
-        <div id="inputs">
-          <div id="firstNameInput" className="inputDiv">
+        <div
+          id="inputs"
+          style={{
+            visibility: this.props.panelProperties.visible
+              ? "visible"
+              : "hidden",
+          }}
+        >
+          <div
+            id="firstNameInput"
+            className="inputDiv"
+            style={{
+              visibility: this.props.panelProperties.visible
+                ? "visible"
+                : "hidden",
+            }}
+          >
             <input
               className="inputs"
               type="text"
@@ -115,8 +177,20 @@ class DetailsForm extends React.Component {
               value={this.state.firstName}
               onChange={this.handleChange}
               placeholder="First Name*"
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
             />
-            <div className="upwardSlide" />
+            <div
+              className="upwardSlide"
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
+            />
           </div>
           <div id="surnameInput" className="inputDiv">
             <input
@@ -126,6 +200,11 @@ class DetailsForm extends React.Component {
               value={this.state.surname}
               onChange={this.handleChange}
               placeholder="Surname*"
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
             />
             <div className="upwardSlide" />
           </div>
@@ -137,10 +216,30 @@ class DetailsForm extends React.Component {
               value={this.state.jobTitle}
               onChange={this.handleChange}
               placeholder="Job Title*"
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
             />
-            <div className="upwardSlide" />
+            <div
+              className="upwardSlide"
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
+            />
           </div>
-          <div id="companyNameInput" className="inputDiv">
+          <div
+            id="companyNameInput"
+            className="inputDiv"
+            style={{
+              visibility: this.props.panelProperties.visible
+                ? "visible"
+                : "hidden",
+            }}
+          >
             <input
               className="inputs"
               type="text"
@@ -148,10 +247,30 @@ class DetailsForm extends React.Component {
               value={this.state.companyName}
               onChange={this.handleChange}
               placeholder="Company Name*"
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
             />
-            <div className="upwardSlide" />
+            <div
+              className="upwardSlide"
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
+            />
           </div>
-          <button id="submitForm" onClick={this.handleSubmit}>
+          <button
+            id="submitForm"
+            onClick={this.handleSubmit}
+            style={{
+              visibility: this.props.panelProperties.visible
+                ? "visible"
+                : "hidden",
+            }}
+          >
             Submit
           </button>
         </div>
