@@ -51,7 +51,7 @@ class DetailsForm extends React.Component {
         errors: { ...prevState.errors, lastName: "Input is not valid" },
       }));
     }
-    if (this.state.details.companyName.length == 0) {
+    if (this.state.details.companyName.length === 0) {
       inputsValid = false;
       this.setState((prevState) => ({
         ...prevState,
@@ -61,7 +61,7 @@ class DetailsForm extends React.Component {
         },
       }));
     }
-    if (this.state.details.jobTitle.length == 0) {
+    if (this.state.details.jobTitle.length === 0) {
       inputsValid = false;
       this.setState((prevState) => ({
         ...prevState,
@@ -86,7 +86,7 @@ class DetailsForm extends React.Component {
 
   render() {
     return (
-      <form autoComplete="off">
+      <div className="form">
         <div
           id="header"
           style={{
@@ -153,132 +153,135 @@ class DetailsForm extends React.Component {
             </p>
           </div>
         </div>
-        <div
-          id="inputs"
-          style={{
-            visibility: this.props.panelProperties.visible
-              ? "visible"
-              : "hidden",
-          }}
-        >
+        <form autoComplete="off" id="detailsForm">
           <div
-            id="firstNameInput"
-            className="inputDiv"
+            id="inputs"
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
                 : "hidden",
             }}
           >
-            <input
-              className="inputs"
-              type="text"
-              name="firstName"
-              value={this.state.firstName}
-              onChange={this.handleChange}
-              placeholder="First Name*"
-              autoComplete="off"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
             <div
-              className="upwardSlide"
+              id="firstNameInput"
+              className="inputDiv"
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
                   : "hidden",
               }}
-            />
-          </div>
-          <div id="surnameInput" className="inputDiv">
-            <input
-              className="inputs"
-              type="text"
-              name="surname"
-              value={this.state.surname}
-              onChange={this.handleChange}
-              placeholder="Surname*"
-              autoComplete="off"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
-            <div className="upwardSlide" />
-          </div>
-          <div id="jobTitleInput" className="inputDiv">
-            <input
-              className="inputs"
-              type="text"
-              name="jobTitle"
-              value={this.state.jobTitle}
-              onChange={this.handleChange}
-              placeholder="Job Title*"
-              autoComplete="off"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
+            >
+              <input
+                className="inputs"
+                type="text"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.handleChange}
+                placeholder="First Name*"
+                autoComplete="off"
+                style={{
+                  visibility: this.props.panelProperties.visible
+                    ? "visible"
+                    : "hidden",
+                }}
+              />
+              <div
+                className="upwardSlide"
+                style={{
+                  visibility: this.props.panelProperties.visible
+                    ? "visible"
+                    : "hidden",
+                }}
+              />
+            </div>
+            <div id="surnameInput" className="inputDiv">
+              <input
+                className="inputs"
+                type="text"
+                name="surname"
+                value={this.state.surname}
+                onChange={this.handleChange}
+                placeholder="Surname*"
+                autoComplete="off"
+                style={{
+                  visibility: this.props.panelProperties.visible
+                    ? "visible"
+                    : "hidden",
+                }}
+              />
+              <div className="upwardSlide" />
+            </div>
+            <div id="jobTitleInput" className="inputDiv">
+              <input
+                className="inputs"
+                type="text"
+                name="jobTitle"
+                value={this.state.jobTitle}
+                onChange={this.handleChange}
+                placeholder="Job Title*"
+                autoComplete="off"
+                style={{
+                  visibility: this.props.panelProperties.visible
+                    ? "visible"
+                    : "hidden",
+                }}
+              />
+              <div
+                className="upwardSlide"
+                style={{
+                  visibility: this.props.panelProperties.visible
+                    ? "visible"
+                    : "hidden",
+                }}
+              />
+            </div>
             <div
-              className="upwardSlide"
+              id="companyNameInput"
+              className="inputDiv"
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
                   : "hidden",
               }}
-            />
+            >
+              <input
+                className="inputs"
+                type="text"
+                name="companyName"
+                value={this.state.companyName}
+                onChange={this.handleChange}
+                placeholder="Company Name*"
+                autoComplete="off"
+                style={{
+                  visibility: this.props.panelProperties.visible
+                    ? "visible"
+                    : "hidden",
+                }}
+              />
+              <div
+                className="upwardSlide"
+                style={{
+                  visibility: this.props.panelProperties.visible
+                    ? "visible"
+                    : "hidden",
+                }}
+              />
+            </div>
+            <button
+              id="submitForm"
+              onClick={this.handleSubmit}
+              disabled={this.props.panelProperties.disabled}
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
+            >
+              Start your journey
+            </button>
           </div>
-          <div
-            id="companyNameInput"
-            className="inputDiv"
-            style={{
-              visibility: this.props.panelProperties.visible
-                ? "visible"
-                : "hidden",
-            }}
-          >
-            <input
-              className="inputs"
-              type="text"
-              name="companyName"
-              value={this.state.companyName}
-              onChange={this.handleChange}
-              placeholder="Company Name*"
-              autoComplete="off"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
-            <div
-              className="upwardSlide"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
-          </div>
-          <button
-            id="submitForm"
-            onClick={this.handleSubmit}
-            style={{
-              visibility: this.props.panelProperties.visible
-                ? "visible"
-                : "hidden",
-            }}
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }

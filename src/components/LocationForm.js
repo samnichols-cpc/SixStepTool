@@ -1,6 +1,57 @@
 import React from "react";
 
-const locations = ["England", "Wales", "a", "b", "c", "d"];
+const locations = [
+  "Bath",
+  "Birmingham",
+  "Bradford",
+  "Brighton and Hove",
+  "Bristol",
+  "Cambridge",
+  "Canterbury",
+  "Carlisle",
+  "Chester",
+  "Chichester",
+  "Coventry",
+  "Derby",
+  "Durham",
+  "Ely",
+  "Exeter",
+  "Gloucester",
+  "Hereford",
+  "Kingston upon Hull",
+  "Lancaster",
+  "Leeds",
+  "Leicester",
+  "Lichfield",
+  "Lincoln",
+  "Liverpool",
+  "City of London",
+  "Manchester",
+  "Newcastle upon Tyne",
+  "Norwich",
+  "Nottingham",
+  "Oxford",
+  "Peterborough",
+  "Plymouth",
+  "Portsmouth",
+  "Preston",
+  "Ripon",
+  "Salford",
+  "Salisbury",
+  "Sheffield",
+  "Southampton",
+  "St Albans",
+  "Stoke-on-Trent",
+  "Sunderland",
+  "Truro",
+  "Wakefield",
+  "Wells",
+  "Westminster",
+  "Winchester",
+  "Wolverhampton",
+  "Worcester",
+  "York",
+];
 
 class LocationForm extends React.Component {
   constructor() {
@@ -21,7 +72,14 @@ class LocationForm extends React.Component {
           .indexOf(this.state.searchValue.toUpperCase()) > -1
       )
         dropdownElements.push(
-          <a key={locations[locationId]} onClick={this.handleDropdownClick}>
+          <a
+            key={locations[locationId]}
+            onClick={
+              this.props.panelProperties.disabled
+                ? () => {}
+                : this.handleDropdownClick
+            }
+          >
             {locations[locationId]}
           </a>
         );
@@ -39,7 +97,7 @@ class LocationForm extends React.Component {
 
   render() {
     return (
-      <form autoComplete="off">
+      <div className="form">
         <div
           id="locationHeader"
           style={{
@@ -56,6 +114,7 @@ class LocationForm extends React.Component {
             }}
           ></img>
           <button
+            disabled={this.props.panelProperties.disabled}
             onClick={(event) => {
               event.preventDefault();
               this.props.goBackQuestion();
@@ -69,50 +128,9 @@ class LocationForm extends React.Component {
             Back
           </button>
         </div>
-        <div
-          id="locationInputs"
-          style={{
-            visibility: this.props.panelProperties.visible
-              ? "visible"
-              : "hidden",
-          }}
-        >
+        <form autoComplete="off">
           <div
-            id="hello"
-            style={{
-              visibility: this.props.panelProperties.visible
-                ? "visible"
-                : "hidden",
-            }}
-          >
-            <h3>Hi {this.props.details.firstName}!</h3>
-          </div>
-          <div
-            id="locationInput"
-            style={{
-              visibility: this.props.panelProperties.visible
-                ? "visible"
-                : "hidden",
-            }}
-          >
-            <h3>Please let us know your location </h3>
-            <i
-              className={
-                this.state.dropdownVisible
-                  ? "chevron up icon"
-                  : "chevron down icon"
-              }
-              onClick={() => {
-                this.setState((prevState) => {
-                  return {
-                    dropdownVisible: !prevState.dropdownVisible,
-                  };
-                });
-              }}
-            />
-          </div>
-          <div
-            id="locationDropdown"
+            id="locationInputs"
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
@@ -120,44 +138,87 @@ class LocationForm extends React.Component {
             }}
           >
             <div
+              id="hello"
               style={{
-                height: this.state.dropdownVisible ? "100%" : "0%",
-                transition: "height 2s",
                 visibility: this.props.panelProperties.visible
                   ? "visible"
                   : "hidden",
               }}
             >
-              <input
-                type="text"
-                placeholder="Search.."
-                id="myInput"
-                autoComplete="off"
-                onChange={(event) => {
-                  this.setState({ searchValue: event.target.value });
+              <h3>Hi {this.props.details.firstName}!</h3>
+            </div>
+            <div
+              id="locationInput"
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
+            >
+              <h3>Please let us know your location </h3>
+              <i
+                className={
+                  this.state.dropdownVisible
+                    ? "chevron up icon"
+                    : "chevron down icon"
+                }
+                onClick={() => {
+                  this.setState((prevState) => {
+                    return {
+                      dropdownVisible: !prevState.dropdownVisible,
+                    };
+                  });
                 }}
-                value={this.state.searchValue}
+              />
+            </div>
+            <div
+              id="locationDropdown"
+              style={{
+                visibility: this.props.panelProperties.visible
+                  ? "visible"
+                  : "hidden",
+              }}
+            >
+              <div
+                style={{
+                  height: this.state.dropdownVisible ? "100%" : "0%",
+                  transition: "height 2s",
+                  visibility: this.props.panelProperties.visible
+                    ? "visible"
+                    : "hidden",
+                }}
+              >
+                <input
+                  type="text"
+                  placeholder="Search.."
+                  id="myInput"
+                  autoComplete="off"
+                  onChange={(event) => {
+                    this.setState({ searchValue: event.target.value });
+                  }}
+                  value={this.state.searchValue}
+                  style={{
+                    visibility: this.props.panelProperties.visible
+                      ? "visible"
+                      : "hidden",
+                  }}
+                />
+                {this.renderLocations()}
+              </div>
+              <h3
                 style={{
                   visibility: this.props.panelProperties.visible
                     ? "visible"
                     : "hidden",
                 }}
-              />
-              {this.renderLocations()}
+              >
+                {this.state.location}
+              </h3>
             </div>
-            <h3
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            >
-              {this.state.location}
-            </h3>
+            <div id="locationNext"></div>
           </div>
-          <div id="locationNext"></div>
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }

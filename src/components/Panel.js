@@ -1,6 +1,7 @@
 import React from "react";
 import DetailsForm from "./DetailsForm";
 import EmailForm from "./EmailForm";
+import TermsForm from "./TermsForm";
 import LocationForm from "./LocationForm";
 
 const questions = [
@@ -8,10 +9,10 @@ const questions = [
     number: "1",
     title: "Which do you most identify with? \n\t I am:",
     answers: [
-      ["a. Thinking about creating a hub of innovation (1)", 1],
-      ["b. An early stage district or hub (2-3)", 1],
+      ["a. Thinking about creating a hub of innovation", 1],
+      ["b. An early stage district or hub", 1],
       [
-        "c. A well established home of innovative companies and institutions (3-6)",
+        "c. A well established home of innovative companies and institutions",
         2,
       ],
     ],
@@ -22,19 +23,19 @@ const questions = [
       "Which of these is your biggest priority in your hub of innovation at the moment?",
     answers: [
       [
-        "a. Agreeing with partners what/where the innovation play really is in our region (1)",
+        "a. Agreeing with partners what/where the innovation play really is in our region",
         3,
       ],
       [
-        "b. Working out our location's USP and assessing what our innovation assets are capable of (2)",
+        "b. Working out our location's USP and assessing what our innovation assets are capable of",
         3,
       ],
       [
-        "c. Building a coalition for development, investment and placemaking in the area (3)",
+        "c. Building a coalition for development, investment and placemaking in the area",
         4,
       ],
       [
-        "d. Attracting larger tenants and institutions, building international profile,  (4)",
+        "d. Attracting larger tenants and institutions, building international profile",
         4,
       ],
     ],
@@ -45,20 +46,20 @@ const questions = [
       "Which of these is your biggest priority in your hub of innovation at the moment?",
     answers: [
       [
-        "a. Developing and improving our key sites, building our reputation (3)",
+        "a. Developing and improving our key sites, building our reputation ",
         4,
       ],
       [
-        "b. Reinventing the physical and social environment of our location to make it fit for what future talent and businesses need  (3)",
+        "b. Reinventing the physical and social environment of our location to make it fit for what future talent and businesses need",
         4,
       ],
-      ["c.  Strengthening the existing governance model (4)", 4],
+      ["c.  Strengthening the existing governance model", 4],
       [
-        "d. Making sure our current growth and scale delivers inclusive long term success (5)",
+        "d. Making sure our current growth and scale delivers inclusive long term success",
         5,
       ],
       [
-        "e. Ensuring more people have a chance to share in our global leadership, and finding ways to grow 'up' or 'out' while retaining our innovative character (6)",
+        "e. Ensuring more people have a chance to share in our global leadership, and finding ways to grow 'up' or 'out' while retaining our innovative character",
         6,
       ],
     ],
@@ -77,9 +78,9 @@ const questions = [
     title:
       "True/False:\nWe have a clear idea what the baseline, benchmarks, and targets are for this specific location",
     answers: [
-      ["a. True (4)", "L3"],
+      ["a. True", "L3"],
       [
-        "b. False -- the project has buy-in but we are not yet quite sure what success looks like (3)",
+        "b. False -- the project has buy-in but we are not yet quite sure what success looks like",
         5,
       ],
     ],
@@ -89,10 +90,10 @@ const questions = [
     title:
       "True/False:\nWe are ready to invest in strategies to connect the innovation community and improve the place's connectivity",
     answers: [
-      ["a. True (4)", "L4"],
-      ["b. False -- we are not ready for this (3)", "L3"],
+      ["a. True", "L4"],
+      ["b. False -- we are not ready for this", "L3"],
       [
-        "c. False -- we already have built a lot of community-building capacity (5)",
+        "c. False -- we already have built a lot of community-building capacity",
         6,
       ],
     ],
@@ -102,8 +103,8 @@ const questions = [
     title:
       "True/False:\nWe are ready to provide services and benefits beyond our immediate boundaries, and work toward bigger solutions on infrastructure, housing and inclusion",
     answers: [
-      ["a. True (6)", "L5"],
-      ["b. False -- we'd love to do this but not yet ready (5)", "L6"],
+      ["a. True", "L5"],
+      ["b. False -- we'd love to do this but not yet ready", "L6"],
     ],
   },
   { title: "", answers: [["", 0]] },
@@ -111,8 +112,7 @@ const questions = [
 
 class Panel extends React.Component {
   render() {
-    console.log(this.props.panelProperties.question);
-    if (this.props.panelProperties.question == -5)
+    if (this.props.panelProperties.question === -5)
       return (
         <DetailsForm
           panelProperties={this.props.panelProperties}
@@ -122,7 +122,7 @@ class Panel extends React.Component {
         />
       );
 
-    if (this.props.panelProperties.question == -4)
+    if (this.props.panelProperties.question === -4)
       return (
         <LocationForm
           panelProperties={this.props.panelProperties}
@@ -132,16 +132,30 @@ class Panel extends React.Component {
           setNextQuestion={this.props.setNextQuestion}
         />
       );
-    if (this.props.panelProperties.question == -3)
+    if (this.props.panelProperties.question === -3)
       return (
         <EmailForm
           panelProperties={this.props.panelProperties}
           details={this.props.details}
+          updateDetails={this.props.updateDetails}
           goBackQuestion={this.props.goBackQuestion}
           updateHistory={this.props.updateHistory}
           setNextQuestion={this.props.setNextQuestion}
         />
       );
+    if (this.props.panelProperties.question === -2)
+      return (
+        <TermsForm
+          panelProperties={this.props.panelProperties}
+          details={this.props.details}
+          updateDetails={this.props.updateDetails}
+          goBackQuestion={this.props.goBackQuestion}
+          updateHistory={this.props.updateHistory}
+          setNextQuestion={this.props.setNextQuestion}
+          showResults={this.props.showResults}
+        />
+      );
+
     return (
       <div>
         <div
@@ -153,10 +167,14 @@ class Panel extends React.Component {
           }}
         >
           <button
-            onClick={(event) => {
-              event.preventDefault();
-              this.props.goBackQuestion();
-            }}
+            onClick={
+              this.props.panelProperties.disabled
+                ? () => {}
+                : (event) => {
+                    event.preventDefault();
+                    this.props.goBackQuestion();
+                  }
+            }
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
@@ -196,7 +214,11 @@ class Panel extends React.Component {
                   id="answer"
                   className="answers"
                   key={i}
-                  onClick={() => this.props.setNextQuestion(answer[1])}
+                  onClick={
+                    this.props.panelProperties.disabled
+                      ? () => {}
+                      : () => this.props.setNextQuestion(answer[1])
+                  }
                   style={{
                     visibility: this.props.panelProperties.visible
                       ? "visible"

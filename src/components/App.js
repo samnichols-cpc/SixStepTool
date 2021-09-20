@@ -1,6 +1,6 @@
 import React from "react";
 import Panel from "./Panel";
-import DetailsForm from "./DetailsForm";
+import ResultsPage from "./ResultsPage";
 import ScrollingPanel from "./ScrollingPanel";
 
 class App extends React.Component {
@@ -20,21 +20,29 @@ class App extends React.Component {
         position: 0,
         question: 0,
         visible: true,
+        disabled: true,
       },
       panel2: {
         position: 1,
         question: -5,
         visible: true,
+        disabled: false,
       },
       panel3: {
         position: 2,
         question: -4,
         visible: false,
+        disabled: true,
       },
+      showResults: false,
     };
   }
 
-  history = [-2];
+  history = [-5];
+
+  showResults = () => {
+    this.setState({ showResults: true });
+  };
 
   updateDetails = (details) => {
     this.setState((prevState) => {
@@ -50,25 +58,32 @@ class App extends React.Component {
   };
 
   setNextQuestion = (nextQuestion) => {
-    if (typeof nextQuestion == "string") {
+    if (typeof nextQuestion === "string") {
       this.setState({ level: parseInt(nextQuestion[1]) });
       this.setNextQuestion(-3);
       return;
     }
     this.history.push(nextQuestion);
-    if (this.state.panel1.position == 1) {
+    if (this.state.panel1.position === 1) {
       this.setState((prevState) => {
         return {
           panel1: {
             position: 0,
             question: prevState.panel1.question,
             visible: true,
+            disabled: true,
           },
-          panel2: { position: 1, question: nextQuestion, visible: true },
+          panel2: {
+            position: 1,
+            question: nextQuestion,
+            visible: true,
+            disabled: true,
+          },
           panel3: {
             position: 2,
             question: prevState.panel3.question,
             visible: false,
+            disabled: true,
           },
         };
       });
@@ -76,53 +91,73 @@ class App extends React.Component {
         this.setState((prevState) => {
           return {
             panel1: {
-              position: 0,
-              question: prevState.panel1.question,
+              ...prevState.panel1,
               visible: false,
+            },
+            panel2: {
+              ...prevState.panel2,
+              disabled: false,
             },
           };
         });
       }, 2000);
-    } else if (this.state.panel2.position == 1) {
+    } else if (this.state.panel2.position === 1) {
       this.setState((prevState) => {
         return {
           panel1: {
             position: 2,
             question: prevState.panel1.question,
             visible: false,
+            disabled: true,
           },
           panel2: {
             position: 0,
             question: prevState.panel2.question,
             visible: true,
+            disabled: true,
           },
-          panel3: { position: 1, question: nextQuestion, visible: true },
+          panel3: {
+            position: 1,
+            question: nextQuestion,
+            visible: true,
+            disabled: true,
+          },
         };
       });
       setTimeout(() => {
         this.setState((prevState) => {
           return {
             panel2: {
-              position: 0,
-              question: prevState.panel2.question,
+              ...prevState.panel2,
               visible: false,
+            },
+            panel3: {
+              ...prevState.panel3,
+              disabled: false,
             },
           };
         });
       }, 2000);
-    } else if (this.state.panel3.position == 1) {
+    } else if (this.state.panel3.position === 1) {
       this.setState((prevState) => {
         return {
-          panel1: { position: 1, question: nextQuestion, visible: true },
+          panel1: {
+            position: 1,
+            question: nextQuestion,
+            visible: true,
+            disabled: true,
+          },
           panel2: {
             position: 2,
             question: prevState.panel2.question,
             visible: false,
+            disabled: true,
           },
           panel3: {
             position: 0,
             question: prevState.panel3.question,
             visible: true,
+            disabled: true,
           },
         };
       });
@@ -130,9 +165,12 @@ class App extends React.Component {
         this.setState((prevState) => {
           return {
             panel3: {
-              position: 0,
-              question: prevState.panel3.question,
+              ...prevState.panel3,
               visible: false,
+            },
+            panel1: {
+              ...prevState.panel1,
+              disabled: false,
             },
           };
         });
@@ -141,7 +179,7 @@ class App extends React.Component {
   };
 
   goBackQuestion = () => {
-    if (this.history.length == 0) {
+    if (this.history.length === 0) {
       //Alert the user that they cant go back
       this.setState((prevState) => {
         return { details: { ...prevState.details, completed: false } };
@@ -149,23 +187,26 @@ class App extends React.Component {
     } else {
       this.history.pop();
     }
-    if (this.state.panel1.position == 1) {
+    if (this.state.panel1.position === 1) {
       this.setState((prevState) => {
         return {
           panel1: {
             position: 2,
             question: prevState.panel1.question,
             visible: true,
+            disabled: true,
           },
           panel2: {
             position: 0,
             question: prevState.panel2.question,
             visible: false,
+            disabled: true,
           },
           panel3: {
             position: 1,
             question: this.history[this.history.length - 1],
             visible: true,
+            disabled: true,
           },
         };
       });
@@ -173,30 +214,36 @@ class App extends React.Component {
         this.setState((prevState) => {
           return {
             panel1: {
-              position: 2,
-              question: prevState.panel1.question,
+              ...prevState.panel1,
               visible: false,
+            },
+            panel3: {
+              ...prevState.panel3,
+              disabled: false,
             },
           };
         });
       }, 2000);
-    } else if (this.state.panel2.position == 1) {
+    } else if (this.state.panel2.position === 1) {
       this.setState((prevState) => {
         return {
           panel1: {
             position: 1,
             question: this.history[this.history.length - 1],
             visible: true,
+            disabled: true,
           },
           panel2: {
             position: 2,
             question: prevState.panel2.question,
             visible: true,
+            disabled: true,
           },
           panel3: {
             position: 0,
             question: prevState.panel3.question,
             visible: false,
+            disabled: true,
           },
         };
       });
@@ -204,30 +251,36 @@ class App extends React.Component {
         this.setState((prevState) => {
           return {
             panel2: {
-              position: 2,
-              question: prevState.panel2.question,
+              ...prevState.panel2,
               visible: false,
+            },
+            panel1: {
+              ...prevState.panel1,
+              disabled: false,
             },
           };
         });
       }, 2000);
-    } else if (this.state.panel3.position == 1) {
+    } else if (this.state.panel3.position === 1) {
       this.setState((prevState) => {
         return {
           panel1: {
             position: 0,
             question: prevState.panel1.question,
             visible: false,
+            disabled: true,
           },
           panel2: {
             position: 1,
             question: this.history[this.history.length - 1],
             visible: true,
+            disabled: true,
           },
           panel3: {
             position: 2,
             question: prevState.panel3.question,
             visible: true,
+            disabled: true,
           },
         };
       });
@@ -236,9 +289,12 @@ class App extends React.Component {
         this.setState((prevState) => {
           return {
             panel3: {
-              position: 2,
-              question: prevState.panel3.question,
+              ...prevState.panel3,
               visible: false,
+            },
+            panel2: {
+              ...prevState.panel2,
+              disabled: false,
             },
           };
         });
@@ -247,40 +303,46 @@ class App extends React.Component {
   };
 
   render() {
+    if (this.state.showResults) {
+      return (
+        <ResultsPage details={this.state.details} level={this.state.level} />
+      );
+    }
     return (
-      <div>
-        <div>
-          <ScrollingPanel panelProperties={this.state.panel1}>
-            <Panel
-              details={this.state.details}
-              panelProperties={this.state.panel1}
-              setNextQuestion={this.setNextQuestion}
-              goBackQuestion={this.goBackQuestion}
-              updateDetails={this.updateDetails}
-              updateHistory={this.updateHistory}
-            />
-          </ScrollingPanel>
-          <ScrollingPanel panelProperties={this.state.panel2}>
-            <Panel
-              details={this.state.details}
-              panelProperties={this.state.panel2}
-              setNextQuestion={this.setNextQuestion}
-              goBackQuestion={this.goBackQuestion}
-              updateDetails={this.updateDetails}
-              updateHistory={this.updateHistory}
-            />
-          </ScrollingPanel>
-          <ScrollingPanel panelProperties={this.state.panel3}>
-            <Panel
-              details={this.state.details}
-              panelProperties={this.state.panel3}
-              setNextQuestion={this.setNextQuestion}
-              goBackQuestion={this.goBackQuestion}
-              updateDetails={this.updateDetails}
-              updateHistory={this.updateHistory}
-            />
-          </ScrollingPanel>
-        </div>
+      <div id="background">
+        <ScrollingPanel panelProperties={this.state.panel1}>
+          <Panel
+            details={this.state.details}
+            panelProperties={this.state.panel1}
+            setNextQuestion={this.setNextQuestion}
+            goBackQuestion={this.goBackQuestion}
+            updateDetails={this.updateDetails}
+            updateHistory={this.updateHistory}
+            showResults={this.showResults}
+          />
+        </ScrollingPanel>
+        <ScrollingPanel panelProperties={this.state.panel2}>
+          <Panel
+            details={this.state.details}
+            panelProperties={this.state.panel2}
+            setNextQuestion={this.setNextQuestion}
+            goBackQuestion={this.goBackQuestion}
+            updateDetails={this.updateDetails}
+            updateHistory={this.updateHistory}
+            showResults={this.showResults}
+          />
+        </ScrollingPanel>
+        <ScrollingPanel panelProperties={this.state.panel3}>
+          <Panel
+            details={this.state.details}
+            panelProperties={this.state.panel3}
+            setNextQuestion={this.setNextQuestion}
+            goBackQuestion={this.goBackQuestion}
+            updateDetails={this.updateDetails}
+            updateHistory={this.updateHistory}
+            showResults={this.showResults}
+          />
+        </ScrollingPanel>
       </div>
     );
   }

@@ -12,6 +12,7 @@ class EmailForm extends React.Component {
         companyName: "",
         jobTitle: "",
         email: "",
+        confirmEmail: "",
       },
       errors: {
         firstName: "",
@@ -19,6 +20,7 @@ class EmailForm extends React.Component {
         companyName: "",
         jobTitle: "",
         email: "",
+        confirmEmail: "",
       },
     };
   }
@@ -33,7 +35,8 @@ class EmailForm extends React.Component {
   };
 
   checkInputs = () => {
-    const emailRegex = new RegExp("^[a-z,.'-]+$", "i");
+    const emailRegex =
+      /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
     let inputsValid = true;
     if (!emailRegex.test(this.state.details.email)) {
@@ -43,10 +46,16 @@ class EmailForm extends React.Component {
         errors: { ...prevState.errors, email: "Input is not valid" },
       }));
     }
-    this.setState((prevState) => ({
-      ...prevState,
-      details: { ...prevState.details, completed: inputsValid },
-    }));
+    if (
+      this.state.details.email.toLowerCase() !=
+      this.state.details.confirmEmail.toLowerCase()
+    ) {
+      inputsValid = false;
+      this.setState((prevState) => ({
+        ...prevState,
+        errors: { ...prevState.errors, confirmEmail: "Email does not match" },
+      }));
+    }
 
     return inputsValid;
   };
@@ -54,24 +63,47 @@ class EmailForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.checkInputs()) {
-      this.props.setNextQuestion(-1);
+      this.props.setNextQuestion(-2);
       this.props.updateDetails(this.state.details);
     }
   };
 
   render() {
     return (
-      <form autoComplete="off">
+      <div className="form">
         <div
-          id="header"
+          id="locationHeader"
           style={{
             visibility: this.props.panelProperties.visible
               ? "visible"
               : "hidden",
           }}
         >
+          <img
+            style={{
+              visibility: this.props.panelProperties.visible
+                ? "visible"
+                : "hidden",
+            }}
+          ></img>
+          <button
+            disabled={this.props.panelProperties.disabled}
+            onClick={(event) => {
+              event.preventDefault();
+              this.props.goBackQuestion();
+            }}
+            style={{
+              visibility: this.props.panelProperties.visible
+                ? "visible"
+                : "hidden",
+            }}
+          >
+            Back
+          </button>
+        </div>
+        <form autoComplete="off">
           <div
-            id="titleDiv"
+            id="emailInputs"
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
@@ -79,24 +111,30 @@ class EmailForm extends React.Component {
             }}
           >
             <div
-              id="title"
+              id="emailInput"
+              className="inputDiv"
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
                   : "hidden",
               }}
             >
-              <h1
+              <input
+                className="inputs"
+                type="text"
+                name="email"
+                value={this.state.details.email}
+                onChange={this.handleChange}
+                placeholder="Email*"
+                autoComplete="off"
                 style={{
                   visibility: this.props.panelProperties.visible
                     ? "visible"
                     : "hidden",
                 }}
-              >
-                Find out where your location is on its innovation journey.
-              </h1>
+              />
               <div
-                id="titleDownwardSlide"
+                className="upwardSlide"
                 style={{
                   visibility: this.props.panelProperties.visible
                     ? "visible"
@@ -104,101 +142,38 @@ class EmailForm extends React.Component {
                 }}
               />
             </div>
-          </div>
-          <div
-            id="descriptionDiv"
-            style={{
-              visibility: this.props.panelProperties.visible
-                ? "visible"
-                : "hidden",
-            }}
-          >
-            <p
-              id="description"
+            <div id="confirmEmailInput" className="inputDiv">
+              <input
+                className="inputs"
+                type="text"
+                name="confirmEmail"
+                value={this.state.details.confirmEmail}
+                onChange={this.handleChange}
+                placeholder="Confirm Email*"
+                autoComplete="off"
+                style={{
+                  visibility: this.props.panelProperties.visible
+                    ? "visible"
+                    : "hidden",
+                }}
+              />
+              <div className="upwardSlide" />
+            </div>
+
+            <button
+              id="submitForm"
+              onClick={this.handleSubmit}
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
                   : "hidden",
               }}
             >
-              If you lead or are involved in a particular neighbourhood or place
-              that is or can become a hub of innovation. In three simple steps
-              we will assess where you are up to, and discover what priorities
-              may lie ahead!
-            </p>
+              Submit
+            </button>
           </div>
-        </div>
-        <div
-          id="inputs"
-          style={{
-            visibility: this.props.panelProperties.visible
-              ? "visible"
-              : "hidden",
-          }}
-        >
-          <div
-            id="emailInput"
-            className="inputDiv"
-            style={{
-              visibility: this.props.panelProperties.visible
-                ? "visible"
-                : "hidden",
-            }}
-          >
-            <input
-              className="inputs"
-              type="text"
-              name="email"
-              value={this.state.firstName}
-              onChange={this.handleChange}
-              placeholder="Email*"
-              autoComplete="off"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
-            <div
-              className="upwardSlide"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
-          </div>
-          <div id="confirmEmailInput" className="inputDiv">
-            <input
-              className="inputs"
-              type="text"
-              name="confirmEmail"
-              value={this.state.surname}
-              onChange={this.handleChange}
-              placeholder="Confirm Email*"
-              autoComplete="off"
-              style={{
-                visibility: this.props.panelProperties.visible
-                  ? "visible"
-                  : "hidden",
-              }}
-            />
-            <div className="upwardSlide" />
-          </div>
-
-          <button
-            id="submitForm"
-            onClick={this.handleSubmit}
-            style={{
-              visibility: this.props.panelProperties.visible
-                ? "visible"
-                : "hidden",
-            }}
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }
