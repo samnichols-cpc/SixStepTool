@@ -4,10 +4,11 @@ import useWindowDimensions from "./WindowDimensions";
 const ScrollingPanel = (props) => {
   const ref = useRef(null);
   const { windowHeight, windowWidth } = useWindowDimensions();
-  const height = props.baseRef.current.clientHeight;
   const [positions, setPositions] = useState([-50, 25, 150]);
 
   useEffect(() => {
+    const height = props.baseRef.current.clientHeight;
+
     const heightPercentage = Math.round(
       (ref.current.clientHeight / height) * 100
     );
