@@ -1,463 +1,459 @@
 @media (min-width: 0px) {
-  #slideable {
-    height: 96%;
-    width: 96%;
+  #sst_contentContainer {
     left: 2%;
-    right: 2%;
-  }
-  body {
-    font-size: small;
-  }
-  #contentContainer {
     position: absolute;
     width: 96%;
+  }
+  #sst_slideable {
+    height: 96%;
     left: 2%;
+    right: 2%;
+    width: 96%;
+  }
+  #sst_sixStepTool {
+    font-size: small;
   }
 }
 @media (min-width: 700px) {
-  #slideable {
-    height: 80%;
-    width: 80%;
+  #sst_contentContainer {
     left: 10%;
-    right: 10%;
-  }
-  #contentContainer {
     position: absolute;
     width: 80%;
+  }
+  #sst_slideable {
+    height: 80%;
     left: 10%;
+    right: 10%;
+    width: 80%;
   }
 }
 @media (min-width: 1120px) {
-  #slideable {
+  #sst_contentContainer {
+    left: 25%;
+    position: absolute;
+    width: 50%;
+  }
+  #sst_slideable {
     height: 50%;
     left: 25%;
     right: 25%;
     width: 50%;
   }
-  #contentContainer {
-    position: absolute;
-    width: 50%;
-    left: 25%;
-  }
 }
-#resultsPage {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-#slideable {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  position: absolute;
-  webkit-transition: all 2s ease;
-  moz-transition: all 2s ease;
-  ms-transition: all 2s ease;
-  o-transition: all 2s ease;
-  transition: all 2s ease;
-}
+
 #sixStepTool {
-  height: 100%;
-}
-#background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url("background.jpg");
-  background-size: 100% 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-#banner {
-  position: relative;
-  height: 40%;
-  width: 100%;
-}
-#answer:hover {
-  background-color: #feaf9b;
-}
-#companyNameInput {
-  bottom: 40%;
-  right: 10%;
-}
-#descriptionDiv {
-  position: absolute;
-  top: 50%;
-  height: 50%;
-  margin-left: 20%;
-  padding: 10px;
-}
-#firstNameInput {
-  position: absolute;
-  left: 10%;
-  top: 20%;
-}
-#emailInput {
-  position: absolute;
-  top: 45%;
-  left: 10%;
-}
-#confirmEmailInput {
-  position: absolute;
-  top: 45%;
-  right: 10%;
-}
-#inputs {
-  background-color: #ededed;
-  border-radius: 20px;
-  bottom: 0px;
-  height: 100%;
-  padding: 10px;
   position: relative;
   width: 100%;
-  opacity: 0.95;
-}
-#emailInputs {
-  background-color: #ededed;
-  border-radius: 20px;
-  bottom: 0px;
   height: 100%;
-  padding: 10px;
-  position: relative;
-  width: 100%;
-  opacity: 0.95;
 }
-#jobTitleInput {
-  bottom: 40%;
-  left: 10%;
-}
-#question {
-  display: inline;
-  padding: 20px;
-}
-#questionHeader {
-  position: absolute;
-  height: 20%;
-  width: 100%;
-}
-#questionHeader button {
-  position: absolute;
-  width: 15%;
-  height: 30%;
-  top: 25%;
-  left: 80%;
-  background-color: #fc5e36;
-  text-align: center;
-  border: solid #fc5e36;
-  border-radius: 20px;
-  cursor: pointer;
-  color: white;
-}
-
-#questionContent {
-  position: absolute;
-  height: 80%;
-  top: 20%;
-  width: 100%;
-  border-radius: 10px;
-  background-color: #ededed;
-  opacity: 0.95;
-}
-#questionTitle {
-  position: absolute;
-  height: 20%;
-  width: 90%;
-  top: 5%;
-  left: 5%;
-  border-radius: 10px;
-  background-color: #dbdbdb;
-}
-#questionNumber {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-color: #fc5e36;
-  text-align: center;
-  padding-top: 2px;
-}
-#questionText {
-  position: absolute;
-  left: 70px;
-  font-weight: bold;
-  padding: 10px;
-}
-#answer:hover {
-  background-color: #feaf9b !important;
-}
-
-#submitForm {
-  background-color: #fc5e36;
-  bottom: 15%;
-  width: 20%;
-  right: 5%;
-  border: solid #fc5e36;
-  border-radius: 20px;
-  padding: 10px;
-  position: absolute;
-  text-align: center;
-  position: absolute;
-  color: white;
-}
-
-#surnameInput {
-  right: 10%;
-  top: 20%;
-}
-#title {
-  position: absolute;
-  background-color: #fc5e36;
-  border-radius: 100px;
-  left: 10%;
-  width: 90%;
-  height: 100%;
-  margin-bottom: 0;
-  text-align: center;
-  justify-content: center;
-  z-index: 1;
-}
-#title h1 {
-  position: relative;
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  font-size: large;
-  z-index: 1;
-}
-body {
-  position: relative;
-}
-button #back {
+#sst_back {
   display: inline !important;
 }
-.form {
+
+.sst_errors {
+  color: red;
+  font-size: smaller;
+  position: absolute;
+  top: -20px;
+  width: 100%;
+}
+.sst_form {
   height: 100%;
   position: absolute;
   width: 100%;
 }
-form {
-  position: relative;
-  height: 80%;
-  width: 100%;
-}
-#detailsForm {
-  height: 68%;
-}
-
-.inputDiv {
+.sst_inputDiv {
   background-color: #dbdbdb;
   border: none;
   border-radius: 20px;
+  height: 30px;
   padding: 10px;
   position: absolute;
   text-align: center;
   width: 30%;
-  height: 30px;
 }
-#header {
-  position: relative;
-  margin-bottom: 2%;
-  height: 30%;
-}
-.inputs {
-  position: absolute;
+.sst_inputs {
   background-color: #dbdbdb;
   border: none;
-  text-align: center;
-  padding: 10px;
   border-radius: 20px;
-  width: 100%;
   height: 100%;
   left: 0;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
   top: 0;
+  width: 100%;
   z-index: 1;
 }
-#titleDiv {
-  position: absolute;
-  width: 100%;
-  height: 50%;
-}
-#titleDownwardSlide {
-  position: absolute;
-  transform: rotate(-60deg);
-  border-radius: 50px;
-  width: 150px;
-  left: -60px;
-  height: 80px;
-  bottom: -40px;
-  background-color: #fc5e36;
-  z-index: 0;
-}
-.upwardSlide {
-  position: absolute;
-  transform: rotate(60deg);
-  border-radius: 20px;
-  width: 50px;
-  height: 30px;
-  left: -20px;
-  top: -15px;
-  background-color: #dbdbdb;
-}
-.inputs:focus {
+.sst_inputs:focus {
   background-color: #feaf9b;
   outline: none;
 }
-.inputs:focus ~ div {
+.sst_inputs:focus ~ div {
   background-color: #feaf9b !important;
   outline: none;
 }
-.errors {
-  width: 100%;
-  position: absolute;
-  top: -20px;
-  color: red;
-  font-size: smaller;
+.sst_termsTick {
+  margin-bottom: 10px;
+  position: relative;
 }
-#submitForm:hover {
-  background-color: #feaf9b;
+.sst_termsTick p {
+  display: inline-block;
+  left: 12.5%;
+  position: relative;
+  width: 85%;
+}
+.sst_tickableTerm {
+  background-color: grey;
+  border-radius: 10px;
   cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  position: absolute;
+  width: 10%;
 }
-#submitForm:focus {
+.sst_tickableTerm i {
+  bottom: 5px;
+  display: inline-block;
+  height: 15px;
+  left: 20%;
+  position: relative;
+  right: 20%;
+  top: 5px;
+  width: 60%;
+}
+.sst_tickableTerm:hover {
+  background-color: #fc5e36;
+}
+.sst_upwardSlide {
+  background-color: #dbdbdb;
+  border-radius: 20px;
+  height: 30px;
+  left: -20px;
+  position: absolute;
+  top: -15px;
+  transform: rotate(60deg);
+  width: 50px;
+}
+
+#sst_answer:hover {
+  background-color: #feaf9b !important;
+}
+#sst_answer:hover {
+  background-color: #feaf9b;
+}
+#sst_background {
+  background-image: url("background.jpg");
+  background-size: 100% 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: absolute;
+  width: 100%;
+}
+#sst_banner {
+  height: 40%;
+  position: relative;
+  width: 100%;
+}
+#sst_companyNameInput {
+  bottom: 40%;
+  right: 10%;
+}
+#sst_confirmEmailInput {
+  position: absolute;
+  right: 10%;
+  top: 45%;
+}
+#sst_consent {
+  margin-top: 10px;
+}
+#sst_descriptionDiv {
+  height: 50%;
+  margin-left: 20%;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+}
+#sst_detailsForm {
+  height: 68%;
+}
+#sst_emailForm {
+  height: 68%;
+}
+#sst_emailInput {
+  left: 10%;
+  position: absolute;
+  top: 45%;
+}
+#sst_emailInputs {
+  background-color: #ededed;
+  border-radius: 20px;
+  bottom: 0px;
+  height: 100%;
+  opacity: 0.95;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+}
+#sst_emailInputs p {
+  margin-bottom: 0;
+}
+#sst_firstNameInput {
+  left: 10%;
+  position: absolute;
+  top: 20%;
+}
+#sst_header {
+  height: 30%;
+  margin-bottom: 2%;
+  position: relative;
+}
+#sst_hello {
+  height: 15%;
+  width: 100%;
+}
+#sst_inputs {
+  background-color: #ededed;
+  border-radius: 20px;
+  bottom: 0px;
+  height: 100%;
+  opacity: 0.95;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+}
+#sst_jobTitleInput {
+  bottom: 40%;
+  left: 10%;
+}
+#sst_locationDropdown {
+  height: 55%;
+  position: relative;
+  width: 100%;
+}
+#sst_locationDropdown div {
+  background-color: white;
+  border: 2px;
+  height: 100%;
+  left: 45%;
+  opacity: 0.7;
+  overflow-y: scroll;
+  position: absolute;
+  transition-timing-function: ease;
+  width: 50%;
+}
+#sst_locationDropdown div a {
+  border: solid #ededed;
+  color: black;
+  cursor: pointer;
+  display: block;
+  padding: 2px;
+  width: 100%;
+}
+#sst_locationDropdown div a:hover {
+  background-color: #ededed;
+}
+#sst_locationDropdown div input {
+  display: block;
+  padding: 5px;
+  width: 100%;
+}
+#sst_locationHeader {
+  height: 20%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+#sst_locationHeader button {
+  background-color: #fc5e36;
+  border: solid #fc5e36;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  height: 30%;
+  left: 80%;
+  position: absolute;
+  text-align: center;
+  top: 25%;
+  width: 15%;
+}
+#sst_locationHeader button:hover {
+  background-color: #feaf9b;
+}
+#sst_locationInput {
+  display: inline;
+  height: 15%;
+  width: 100%;
+}
+#sst_locationInput h3 {
+  display: inline;
+  margin: 0;
+  width: fit-content;
+}
+#sst_locationInput i {
+  cursor: pointer;
+  display: inline;
+}
+#sst_locationInputs {
+  background-color: #dbdbdb;
+  border-radius: 20px;
+  height: 100%;
+  opacity: 0.95;
+  padding: 20px;
+  position: absolute;
+  width: 100%;
+}
+#sst_locationNext {
+  height: 15%;
+  width: 100%;
+}
+#sst_question {
+  display: inline;
+  padding: 20px;
+}
+#sst_questionContent {
+  background-color: #ededed;
+  border-radius: 10px;
+  height: 80%;
+  opacity: 0.95;
+  position: absolute;
+  top: 20%;
+  width: 100%;
+}
+#sst_questionHeader {
+  height: 20%;
+  position: absolute;
+  width: 100%;
+}
+#sst_questionHeader button {
+  background-color: #fc5e36;
+  border: solid #fc5e36;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  height: 30%;
+  left: 80%;
+  position: absolute;
+  text-align: center;
+  top: 25%;
+  width: 15%;
+}
+#sst_questionNumber {
+  background-color: #fc5e36;
+  border-radius: 50%;
+  height: 25px;
+  left: 10px;
+  padding-top: 2px;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 25px;
+}
+#sst_questionText {
+  font-weight: bold;
+  left: 70px;
+  padding: 10px;
+  position: absolute;
+}
+#sst_questionTitle {
+  background-color: #dbdbdb;
+  border-radius: 10px;
+  height: 20%;
+  left: 5%;
+  position: absolute;
+  top: 5%;
+  width: 90%;
+}
+#sst_resultsPage {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+#sst_sixStepTool {
+  height: 100%;
+}
+#sst_slideable {
+  moz-transition: all 2s ease;
+  ms-transition: all 2s ease;
+  o-transition: all 2s ease;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: absolute;
+  transition: all 2s ease;
+  webkit-transition: all 2s ease;
+}
+#sst_submitForm {
+  background-color: #fc5e36;
+  border: solid #fc5e36;
+  border-radius: 20px;
+  bottom: 15%;
+  color: white;
+  padding: 10px;
+  position: absolute;
+  right: 5%;
+  text-align: center;
+  width: 20%;
+}
+#sst_submitForm:focus {
   background-color: #feaf9b;
   outline: none;
 }
-#locationHeader {
-  position: relative;
-  width: 100%;
-  height: 20%;
-  justify-content: center;
-}
-#locationHeader button {
-  position: absolute;
-  width: 15%;
-  height: 30%;
-  top: 25%;
-  left: 80%;
-  background-color: #fc5e36;
-  text-align: center;
-  border: solid #fc5e36;
-  border-radius: 20px;
-  cursor: pointer;
-  color: white;
-}
-#locationHeader button:hover {
+#sst_submitForm:hover {
   background-color: #feaf9b;
-}
-
-#locationInputs {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #dbdbdb;
-  border-radius: 20px;
-  padding: 20px;
-  opacity: 0.95;
-}
-#hello {
-  width: 100%;
-  height: 15%;
-}
-#locationInput {
-  width: 100%;
-  height: 15%;
-  display: inline;
-}
-#locationInput h3 {
-  width: fit-content;
-  display: inline;
-  margin: 0;
-}
-#locationInput i {
-  display: inline;
   cursor: pointer;
 }
-#locationDropdown {
-  position: relative;
-  width: 100%;
-  height: 55%;
-}
-#locationDropdown div {
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  left: 45%;
-  background-color: white;
-  opacity: 0.7;
-  transition-timing-function: ease;
-  border: 2px;
-  overflow-y: scroll;
-}
-#locationDropdown div input {
-  display: block;
-  width: 100%;
-  padding: 5px;
-}
-#locationDropdown div a {
-  color: black;
-  display: block;
-  width: 100%;
-  padding: 2px;
-  cursor: pointer;
-  border: solid #ededed;
-}
-#locationDropdown div a:hover {
-  background-color: #ededed;
-}
-#locationNext {
-  width: 100%;
-  height: 15%;
-}
-.termsTick {
-  position: relative;
-  margin-bottom: 10px;
-}
-.termsTick p {
-  position: relative;
-  display: inline-block;
-  left: 12.5%;
-  width: 85%;
-}
-
-.tickableTerm {
-  position: absolute;
-  display: inline-block;
-  width: 10%;
-  height: 25px;
-  border-radius: 10px;
-  background-color: grey;
-  cursor: pointer;
-}
-.tickableTerm i {
-  position: relative;
-  display: inline-block;
-  width: 60%;
-  height: 15px;
-  left: 20%;
-  right: 20%;
-  top: 5px;
-  bottom: 5px;
-}
-.tickableTerm:hover {
+#sst_submitTermsForm {
   background-color: #fc5e36;
-}
-#submitTermsForm {
-  margin-top: 10px;
-  background-color: #fc5e36;
-  width: 25%;
-  left: 70%;
   border: solid #fc5e36;
   border-radius: 20px;
-  padding: 10px;
-  text-align: center;
-  position: relative;
-  cursor: pointer;
   color: white;
-}
-#emailInputs p {
-  margin-bottom: 0;
-}
-#consent {
+  cursor: pointer;
+  left: 70%;
   margin-top: 10px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  width: 25%;
+}
+#sst_surnameInput {
+  right: 10%;
+  top: 20%;
+}
+#sst_title {
+  background-color: #fc5e36;
+  border-radius: 100px;
+  height: 100%;
+  justify-content: center;
+  left: 10%;
+  margin-bottom: 0;
+  position: absolute;
+  text-align: center;
+  width: 90%;
+  z-index: 1;
+}
+#sst_title h1 {
+  font-size: large;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+#sst_titleDiv {
+  height: 50%;
+  position: absolute;
+  width: 100%;
+}
+#sst_titleDownwardSlide {
+  background-color: #fc5e36;
+  border-radius: 50px;
+  bottom: -40px;
+  height: 80px;
+  left: -60px;
+  position: absolute;
+  transform: rotate(-60deg);
+  width: 150px;
+  z-index: 0;
 }

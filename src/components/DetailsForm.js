@@ -103,9 +103,9 @@ class DetailsForm extends React.Component {
 
   render() {
     return (
-      <div className="form">
+      <div className="sst_form">
         <div
-          id="header"
+          id="sst_header"
           style={{
             visibility: this.props.panelProperties.visible
               ? "visible"
@@ -113,7 +113,7 @@ class DetailsForm extends React.Component {
           }}
         >
           <div
-            id="titleDiv"
+            id="sst_titleDiv"
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
@@ -121,7 +121,7 @@ class DetailsForm extends React.Component {
             }}
           >
             <div
-              id="title"
+              id="sst_title"
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
@@ -138,7 +138,7 @@ class DetailsForm extends React.Component {
                 Find out where your location is on its innovation journey.
               </h1>
               <div
-                id="titleDownwardSlide"
+                id="sst_titleDownwardSlide"
                 style={{
                   visibility: this.props.panelProperties.visible
                     ? "visible"
@@ -148,7 +148,7 @@ class DetailsForm extends React.Component {
             </div>
           </div>
           <div
-            id="descriptionDiv"
+            id="sst_descriptionDiv"
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
@@ -156,7 +156,7 @@ class DetailsForm extends React.Component {
             }}
           >
             <p
-              id="description"
+              id="sst_description"
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
@@ -170,9 +170,9 @@ class DetailsForm extends React.Component {
             </p>
           </div>
         </div>
-        <form autoComplete="off" id="detailsForm">
+        <form autoComplete="off" id="sst_detailsForm">
           <div
-            id="inputs"
+            id="sst_inputs"
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
@@ -180,8 +180,8 @@ class DetailsForm extends React.Component {
             }}
           >
             <div
-              id="firstNameInput"
-              className="inputDiv"
+              id="sst_firstNameInput"
+              className="sst_inputDiv"
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
@@ -189,7 +189,7 @@ class DetailsForm extends React.Component {
               }}
             >
               <input
-                className="inputs"
+                className="sst_inputs"
                 type="text"
                 name="firstName"
                 value={this.state.firstName}
@@ -203,18 +203,18 @@ class DetailsForm extends React.Component {
                 }}
               />
               <div
-                className="upwardSlide"
+                className="sst_upwardSlide"
                 style={{
                   visibility: this.props.panelProperties.visible
                     ? "visible"
                     : "hidden",
                 }}
               />
-              <p className="errors">{this.state.errors.firstName}</p>
+              <p className="sst_errors">{this.state.errors.firstName}</p>
             </div>
-            <div id="surnameInput" className="inputDiv">
+            <div id="sst_surnameInput" className="sst_inputDiv">
               <input
-                className="inputs"
+                className="sst_inputs"
                 type="text"
                 name="surname"
                 value={this.state.surname}
@@ -227,12 +227,12 @@ class DetailsForm extends React.Component {
                     : "hidden",
                 }}
               />
-              <div className="upwardSlide" />
-              <p className="errors">{this.state.errors.surname}</p>
+              <div className="sst_upwardSlide" />
+              <p className="sst_errors">{this.state.errors.surname}</p>
             </div>
-            <div id="jobTitleInput" className="inputDiv">
+            <div id="sst_jobTitleInput" className="sst_inputDiv">
               <input
-                className="inputs"
+                className="sst_inputs"
                 type="text"
                 name="jobTitle"
                 value={this.state.jobTitle}
@@ -246,18 +246,18 @@ class DetailsForm extends React.Component {
                 }}
               />
               <div
-                className="upwardSlide"
+                className="sst_upwardSlide"
                 style={{
                   visibility: this.props.panelProperties.visible
                     ? "visible"
                     : "hidden",
                 }}
               />
-              <p className="errors">{this.state.errors.jobTitle}</p>
+              <p className="sst_errors">{this.state.errors.jobTitle}</p>
             </div>
             <div
-              id="companyNameInput"
-              className="inputDiv"
+              id="sst_companyNameInput"
+              className="sst_inputDiv"
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
@@ -265,7 +265,7 @@ class DetailsForm extends React.Component {
               }}
             >
               <input
-                className="inputs"
+                className="sst_inputs"
                 type="text"
                 name="companyName"
                 value={this.state.companyName}
@@ -279,17 +279,17 @@ class DetailsForm extends React.Component {
                 }}
               />
               <div
-                className="upwardSlide"
+                className="sst_upwardSlide"
                 style={{
                   visibility: this.props.panelProperties.visible
                     ? "visible"
                     : "hidden",
                 }}
               />
-              <p className="errors">{this.state.errors.companyName}</p>
+              <p className="sst_errors">{this.state.errors.companyName}</p>
             </div>
             <button
-              id="submitForm"
+              id="sst_submitForm"
               onClick={this.handleSubmit}
               disabled={this.props.panelProperties.disabled}
               style={{

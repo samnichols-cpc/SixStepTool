@@ -159,7 +159,7 @@ class Panel extends React.Component {
     return (
       <div>
         <div
-          id="questionHeader"
+          id="sst_questionHeader"
           style={{
             visibility: this.props.panelProperties.visible
               ? "visible"
@@ -185,7 +185,7 @@ class Panel extends React.Component {
           </button>
         </div>
         <div
-          id="questionContent"
+          id="sst_questionContent"
           style={{
             visibility: this.props.panelProperties.visible
               ? "visible"
@@ -193,17 +193,17 @@ class Panel extends React.Component {
           }}
         >
           <div
-            id="questionTitle"
+            id="sst_questionTitle"
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
                 : "hidden",
             }}
           >
-            <div id="questionNumber">
+            <div id="sst_questionNumber">
               {questions[this.props.panelProperties.question].number}
             </div>
-            <div id="questionText">
+            <div id="sst_questionText">
               {questions[this.props.panelProperties.question].title}
             </div>
           </div>
@@ -211,8 +211,8 @@ class Panel extends React.Component {
             (answer, i) => {
               return (
                 <div
-                  id="answer"
-                  className="answers"
+                  id="sst_answer"
+                  className="sst_answers"
                   key={i}
                   onClick={
                     this.props.panelProperties.disabled

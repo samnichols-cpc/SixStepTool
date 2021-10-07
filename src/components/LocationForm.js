@@ -97,9 +97,9 @@ class LocationForm extends React.Component {
 
   render() {
     return (
-      <div className="form">
+      <div className="sst_form">
         <div
-          id="locationHeader"
+          id="sst_locationHeader"
           style={{
             visibility: this.props.panelProperties.visible
               ? "visible"
@@ -130,7 +130,7 @@ class LocationForm extends React.Component {
         </div>
         <form autoComplete="off">
           <div
-            id="locationInputs"
+            id="sst_locationInputs"
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
@@ -138,7 +138,7 @@ class LocationForm extends React.Component {
             }}
           >
             <div
-              id="hello"
+              id="sst_hello"
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
@@ -148,7 +148,7 @@ class LocationForm extends React.Component {
               <h3>Hi {this.props.details.firstName}!</h3>
             </div>
             <div
-              id="locationInput"
+              id="sst_locationInput"
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
@@ -172,7 +172,7 @@ class LocationForm extends React.Component {
               />
             </div>
             <div
-              id="locationDropdown"
+              id="sst_locationDropdown"
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
@@ -191,7 +191,7 @@ class LocationForm extends React.Component {
                 <input
                   type="text"
                   placeholder="Search.."
-                  id="myInput"
+                  id="sst_myInput"
                   autoComplete="off"
                   onChange={(event) => {
                     this.setState({ searchValue: event.target.value });
@@ -215,7 +215,7 @@ class LocationForm extends React.Component {
                 {this.state.location}
               </h3>
             </div>
-            <div id="locationNext"></div>
+            <div id="sst_locationNext"></div>
           </div>
         </form>
       </div>

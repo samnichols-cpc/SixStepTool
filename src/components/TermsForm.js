@@ -12,8 +12,8 @@ class TermsForm extends React.Component {
         companyName: "",
         jobTitle: "",
         email: "",
-        terms: false,
-        updates: false,
+        sst_terms: false,
+        sst_updates: false,
       },
       errors: {
         firstName: "",
@@ -21,7 +21,7 @@ class TermsForm extends React.Component {
         companyName: "",
         jobTitle: "",
         email: "",
-        terms: "",
+        sst_terms: "",
       },
     };
   }
@@ -39,12 +39,12 @@ class TermsForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    if (this.state.details.terms == false) {
+    if (this.state.details.sst_terms == false) {
       this.setState((prevState) => {
         return {
           errors: {
             ...prevState.errors,
-            terms: "Terms need to be accepted to get results",
+            sst_terms: "Terms need to be accepted to get results",
           },
         };
       });
@@ -59,9 +59,9 @@ class TermsForm extends React.Component {
 
   render() {
     return (
-      <div className="form">
+      <div className="sst_form">
         <div
-          id="locationHeader"
+          id="sst_locationHeader"
           style={{
             visibility: this.props.panelProperties.visible
               ? "visible"
@@ -92,7 +92,7 @@ class TermsForm extends React.Component {
         </div>
         <form autoComplete="off">
           <div
-            id="emailInputs"
+            id="sst_emailInputs"
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
@@ -110,19 +110,21 @@ class TermsForm extends React.Component {
               never sell it to third parties.
               <br /> You are also welcome to unsubscribe at any time.
             </p>
-            <p id="consent">
+            <p id="sst_consent">
               Do you consent for your personal data to be collected and
               processed by Connected Places Catapult
               <br />
               (Please click to confirm)
             </p>
-            <div className="termsTick" onClick={this.toggleCheck}>
-              <div className="tickableTerm" id="terms">
+            <div className="sst_termsTick" onClick={this.toggleCheck}>
+              <div className="sst_tickableTerm" id="sst_terms">
                 <i
-                  className="ui icon check"
-                  id="terms"
+                  className="sst_ui icon check"
+                  id="sst_terms"
                   style={{
-                    visibility: this.state.details.terms ? "visible" : "hidden",
+                    visibility: this.state.details.sst_terms
+                      ? "visible"
+                      : "hidden",
                   }}
                 ></i>
               </div>
@@ -132,17 +134,17 @@ class TermsForm extends React.Component {
                 data for the purpose stated and in accordance with the Connected
                 Places Catapult Privacy Policy.
                 <span style={{ fontSize: "smaller", color: "red" }}>
-                  {this.state.errors.terms}
+                  {this.state.errors.sst_terms}
                 </span>
               </p>
             </div>
-            <div className="termsTick" onClick={this.toggleCheck}>
-              <div className="tickableTerm" id="updates">
+            <div className="sst_termsTick" onClick={this.toggleCheck}>
+              <div className="sst_tickableTerm" id="sst_updates">
                 <i
-                  className="ui icon check"
-                  id="updates"
+                  className="sst_ui icon check"
+                  id="sst_updates"
                   style={{
-                    visibility: this.state.details.updates
+                    visibility: this.state.details.sst_updates
                       ? "visible"
                       : "hidden",
                   }}
@@ -154,7 +156,7 @@ class TermsForm extends React.Component {
               </p>
             </div>
             <button
-              id="submitTermsForm"
+              id="sst_submitTermsForm"
               onClick={this.handleSubmit}
               disabled={this.props.panelProperties.disabled}
               style={{

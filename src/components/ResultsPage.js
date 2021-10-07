@@ -93,9 +93,9 @@ const stageContentsMap = {
 class ResultsPage extends React.Component {
   render() {
     return (
-      <div id="resultsPage">
-        <div id="contentContainer">
-          <div id="banner">
+      <div id="sst_resultsPage">
+        <div id="sst_contentContainer">
+          <div id="sst_banner">
             <img
               src="header.jpg"
               style={{
@@ -105,7 +105,10 @@ class ResultsPage extends React.Component {
               }}
             ></img>
           </div>
-          <div id="content" style={{ border: "solid 2px", padding: "20px" }}>
+          <div
+            id="sst_content"
+            style={{ border: "solid 2px", padding: "20px" }}
+          >
             <h3>{this.props.details.firstName}</h3>
             <h5>Your results are here!</h5>
             <p>
@@ -156,7 +159,7 @@ class ResultsPage extends React.Component {
               practical funding tips and ideas.
             </p>
           </div>
-          <div id="footer" style={{ position: "relative" }}>
+          <div id="sst_footer" style={{ position: "relative" }}>
             <a
               href="https://hopin.com/events/innovation-places-summit?utm_campaign=innovation-places-summit&utm_source=hopin&utm_medium=6-step-tool-results-page&utm_content=register"
               style={{

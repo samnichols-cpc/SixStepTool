@@ -309,7 +309,7 @@ class App extends React.Component {
       );
     }
     return (
-      <div id="background">
+      <div id="sst_background">
         <ScrollingPanel panelProperties={this.state.panel1}>
           <Panel
             details={this.state.details}

@@ -78,9 +78,9 @@ class EmailForm extends React.Component {
 
   render() {
     return (
-      <div className="form">
+      <div className="sst_form">
         <div
-          id="locationHeader"
+          id="sst_locationHeader"
           style={{
             visibility: this.props.panelProperties.visible
               ? "visible"
@@ -109,9 +109,9 @@ class EmailForm extends React.Component {
             Back
           </button>
         </div>
-        <form autoComplete="off">
+        <form autoComplete="off" id="sst_emailForm">
           <div
-            id="emailInputs"
+            id="sst_emailInputs"
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
@@ -119,8 +119,8 @@ class EmailForm extends React.Component {
             }}
           >
             <div
-              id="emailInput"
-              className="inputDiv"
+              id="sst_emailInput"
+              className="sst_inputDiv"
               style={{
                 visibility: this.props.panelProperties.visible
                   ? "visible"
@@ -128,7 +128,7 @@ class EmailForm extends React.Component {
               }}
             >
               <input
-                className="inputs"
+                className="sst_inputs"
                 type="text"
                 name="email"
                 value={this.state.details.email}
@@ -142,18 +142,18 @@ class EmailForm extends React.Component {
                 }}
               />
               <div
-                className="upwardSlide"
+                className="sst_upwardSlide"
                 style={{
                   visibility: this.props.panelProperties.visible
                     ? "visible"
                     : "hidden",
                 }}
               />
-              <p className="errors">{this.state.errors.email}</p>
+              <p className="sst_errors">{this.state.errors.email}</p>
             </div>
-            <div id="confirmEmailInput" className="inputDiv">
+            <div id="sst_confirmEmailInput" className="sst_inputDiv">
               <input
-                className="inputs"
+                className="sst_inputs"
                 type="text"
                 name="confirmEmail"
                 value={this.state.details.confirmEmail}
@@ -166,12 +166,12 @@ class EmailForm extends React.Component {
                     : "hidden",
                 }}
               />
-              <div className="upwardSlide" />
-              <p className="errors">{this.state.errors.confirmEmail}</p>
+              <div className="sst_upwardSlide" />
+              <p className="sst_errors">{this.state.errors.confirmEmail}</p>
             </div>
 
             <button
-              id="submitForm"
+              id="sst_submitForm"
               onClick={this.handleSubmit}
               style={{
                 visibility: this.props.panelProperties.visible

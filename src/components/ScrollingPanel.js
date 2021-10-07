@@ -30,7 +30,7 @@ const ScrollingPanel = (props) => {
   return (
     <div
       ref={ref}
-      id="slideable"
+      id="sst_slideable"
       style={{
         top: positions[props.panelProperties.position] + "%",
         visibility: props.panelProperties.visible ? "visible" : "hidden",
