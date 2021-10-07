@@ -6,6 +6,7 @@ import ScrollingPanel from "./ScrollingPanel";
 class App extends React.Component {
   constructor() {
     super();
+    this.baseRef = React.createRef();
     this.state = {
       level: 0,
       details: {
@@ -309,8 +310,11 @@ class App extends React.Component {
       );
     }
     return (
-      <div id="sst_background">
-        <ScrollingPanel panelProperties={this.state.panel1}>
+      <div id="sst_background" ref={this.baseRef}>
+        <ScrollingPanel
+          panelProperties={this.state.panel1}
+          baseRef={this.baseRef}
+        >
           <Panel
             details={this.state.details}
             panelProperties={this.state.panel1}
@@ -321,7 +325,10 @@ class App extends React.Component {
             showResults={this.showResults}
           />
         </ScrollingPanel>
-        <ScrollingPanel panelProperties={this.state.panel2}>
+        <ScrollingPanel
+          panelProperties={this.state.panel2}
+          baseRef={this.baseRef}
+        >
           <Panel
             details={this.state.details}
             panelProperties={this.state.panel2}
@@ -332,7 +339,10 @@ class App extends React.Component {
             showResults={this.showResults}
           />
         </ScrollingPanel>
-        <ScrollingPanel panelProperties={this.state.panel3}>
+        <ScrollingPanel
+          panelProperties={this.state.panel3}
+          baseRef={this.baseRef}
+        >
           <Panel
             details={this.state.details}
             panelProperties={this.state.panel3}

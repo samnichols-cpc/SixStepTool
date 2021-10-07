@@ -10,7 +10,7 @@
     right: 2%;
     width: 96%;
   }
-  #sst_sixStepTool {
+  #sixStepTool {
     font-size: small;
   }
 }
@@ -44,7 +44,7 @@
 #sixStepTool {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 1000px;
 }
 #sst_back {
   display: inline !important;
@@ -369,9 +369,6 @@
   height: 100%;
   position: relative;
   width: 100%;
-}
-#sst_sixStepTool {
-  height: 100%;
 }
 #sst_slideable {
   moz-transition: all 2s ease;

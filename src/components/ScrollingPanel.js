@@ -1,23 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import useWindowDimensions from "./WindowDimensions";
 
-function useForceUpdate() {
-  const [value, setValue] = useState(0);
-  return () => setValue((value) => value + 1);
-}
-
 const ScrollingPanel = (props) => {
   const ref = useRef(null);
-  const { height, width } = useWindowDimensions();
+  const { windowHeight, windowWidth } = useWindowDimensions();
+  const height = props.baseRef.current.clientHeight;
   const [positions, setPositions] = useState([-50, 25, 150]);
-
-  const forceUpdate = useForceUpdate();
 
   useEffect(() => {
     const heightPercentage = Math.round(
       (ref.current.clientHeight / height) * 100
     );
-
     if (positions[0] != -heightPercentage) {
       setPositions([
         -heightPercentage,
