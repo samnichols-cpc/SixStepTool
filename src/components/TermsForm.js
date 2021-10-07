@@ -50,6 +50,10 @@ class TermsForm extends React.Component {
       });
       return;
     }
+    this.setState((prevState) => ({
+      ...prevState,
+      errors: { ...prevState.errors, surname: "" },
+    }));
     this.props.showResults();
   };
 
@@ -126,7 +130,10 @@ class TermsForm extends React.Component {
                 I have read the above tool usage section and agree to the
                 collection, storage and use by Connected Places Catapult of my
                 data for the purpose stated and in accordance with the Connected
-                Places Catapult Privacy Policy
+                Places Catapult Privacy Policy.
+                <span style={{ fontSize: "smaller", color: "red" }}>
+                  {this.state.errors.terms}
+                </span>
               </p>
             </div>
             <div className="termsTick" onClick={this.toggleCheck}>

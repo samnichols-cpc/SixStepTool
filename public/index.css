@@ -308,6 +308,13 @@ form {
   background-color: #feaf9b !important;
   outline: none;
 }
+.errors {
+  width: 100%;
+  position: absolute;
+  top: -20px;
+  color: red;
+  font-size: smaller;
+}
 #submitForm:hover {
   background-color: #feaf9b;
   cursor: pointer;

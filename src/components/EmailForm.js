@@ -45,7 +45,11 @@ class EmailForm extends React.Component {
         ...prevState,
         errors: { ...prevState.errors, email: "Input is not valid" },
       }));
-    }
+    } else
+      this.setState((prevState) => ({
+        ...prevState,
+        errors: { ...prevState.errors, email: "" },
+      }));
     if (
       this.state.details.email.toLowerCase() !=
       this.state.details.confirmEmail.toLowerCase()
@@ -55,7 +59,11 @@ class EmailForm extends React.Component {
         ...prevState,
         errors: { ...prevState.errors, confirmEmail: "Email does not match" },
       }));
-    }
+    } else
+      this.setState((prevState) => ({
+        ...prevState,
+        errors: { ...prevState.errors, confirmEmail: "" },
+      }));
 
     return inputsValid;
   };
@@ -141,6 +149,7 @@ class EmailForm extends React.Component {
                     : "hidden",
                 }}
               />
+              <p className="errors">{this.state.errors.email}</p>
             </div>
             <div id="confirmEmailInput" className="inputDiv">
               <input
@@ -158,6 +167,7 @@ class EmailForm extends React.Component {
                 }}
               />
               <div className="upwardSlide" />
+              <p className="errors">{this.state.errors.confirmEmail}</p>
             </div>
 
             <button

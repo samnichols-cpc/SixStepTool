@@ -43,14 +43,22 @@ class DetailsForm extends React.Component {
         ...prevState,
         errors: { ...prevState.errors, firstName: "Input is not valid" },
       }));
-    }
+    } else
+      this.setState((prevState) => ({
+        ...prevState,
+        errors: { ...prevState.errors, firstName: "" },
+      }));
     if (!surnameRegex.test(this.state.details.surname)) {
       inputsValid = false;
       this.setState((prevState) => ({
         ...prevState,
-        errors: { ...prevState.errors, lastName: "Input is not valid" },
+        errors: { ...prevState.errors, surname: "Input is not valid" },
       }));
-    }
+    } else
+      this.setState((prevState) => ({
+        ...prevState,
+        errors: { ...prevState.errors, surname: "" },
+      }));
     if (this.state.details.companyName.length === 0) {
       inputsValid = false;
       this.setState((prevState) => ({
@@ -60,14 +68,22 @@ class DetailsForm extends React.Component {
           companyName: "This is a required field",
         },
       }));
-    }
+    } else
+      this.setState((prevState) => ({
+        ...prevState,
+        errors: { ...prevState.errors, companyName: "" },
+      }));
     if (this.state.details.jobTitle.length === 0) {
       inputsValid = false;
       this.setState((prevState) => ({
         ...prevState,
         errors: { ...prevState.errors, jobTitle: "This is a required field" },
       }));
-    }
+    } else
+      this.setState((prevState) => ({
+        ...prevState,
+        errors: { ...prevState.errors, jobTitle: "" },
+      }));
     this.setState((prevState) => ({
       ...prevState,
       details: { ...prevState.details, completed: inputsValid },
@@ -82,6 +98,7 @@ class DetailsForm extends React.Component {
       this.props.setNextQuestion(-4);
       this.props.updateDetails(this.state.details);
     }
+    console.log(this.state);
   };
 
   render() {
@@ -193,6 +210,7 @@ class DetailsForm extends React.Component {
                     : "hidden",
                 }}
               />
+              <p className="errors">{this.state.errors.firstName}</p>
             </div>
             <div id="surnameInput" className="inputDiv">
               <input
@@ -210,6 +228,7 @@ class DetailsForm extends React.Component {
                 }}
               />
               <div className="upwardSlide" />
+              <p className="errors">{this.state.errors.surname}</p>
             </div>
             <div id="jobTitleInput" className="inputDiv">
               <input
@@ -234,6 +253,7 @@ class DetailsForm extends React.Component {
                     : "hidden",
                 }}
               />
+              <p className="errors">{this.state.errors.jobTitle}</p>
             </div>
             <div
               id="companyNameInput"
@@ -266,6 +286,7 @@ class DetailsForm extends React.Component {
                     : "hidden",
                 }}
               />
+              <p className="errors">{this.state.errors.companyName}</p>
             </div>
             <button
               id="submitForm"
