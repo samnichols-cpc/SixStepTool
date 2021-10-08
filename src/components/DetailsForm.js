@@ -123,20 +123,27 @@ class DetailsForm extends React.Component {
             <div
               id="sst_title"
               style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
                 visibility: this.props.panelProperties.visible
                   ? "visible"
                   : "hidden",
               }}
             >
-              <h1
+              <div
                 style={{
+                  position: "absolute",
+                  zIndex: 2,
+                  padding: "10px",
+                  fontSize: "22pt",
                   visibility: this.props.panelProperties.visible
                     ? "visible"
                     : "hidden",
                 }}
               >
                 Find out where your location is on its innovation journey.
-              </h1>
+              </div>
               <div
                 id="sst_titleDownwardSlide"
                 style={{
@@ -155,7 +162,7 @@ class DetailsForm extends React.Component {
                 : "hidden",
             }}
           >
-            <p
+            <div
               id="sst_description"
               style={{
                 visibility: this.props.panelProperties.visible
@@ -167,10 +174,10 @@ class DetailsForm extends React.Component {
               that is or can become a hub of innovation. In three simple steps
               we will assess where you are up to, and discover what priorities
               may lie ahead!
-            </p>
+            </div>
           </div>
         </div>
-        <form autoComplete="off" id="sst_detailsForm">
+        <div autoComplete="off" id="sst_detailsForm">
           <div
             id="sst_inputs"
             style={{
@@ -210,7 +217,7 @@ class DetailsForm extends React.Component {
                     : "hidden",
                 }}
               />
-              <p className="sst_errors">{this.state.errors.firstName}</p>
+              <div className="sst_errors">{this.state.errors.firstName}</div>
             </div>
             <div id="sst_surnameInput" className="sst_inputDiv">
               <input
@@ -228,7 +235,7 @@ class DetailsForm extends React.Component {
                 }}
               />
               <div className="sst_upwardSlide" />
-              <p className="sst_errors">{this.state.errors.surname}</p>
+              <div className="sst_errors">{this.state.errors.surname}</div>
             </div>
             <div id="sst_jobTitleInput" className="sst_inputDiv">
               <input
@@ -253,7 +260,7 @@ class DetailsForm extends React.Component {
                     : "hidden",
                 }}
               />
-              <p className="sst_errors">{this.state.errors.jobTitle}</p>
+              <div className="sst_errors">{this.state.errors.jobTitle}</div>
             </div>
             <div
               id="sst_companyNameInput"
@@ -286,7 +293,7 @@ class DetailsForm extends React.Component {
                     : "hidden",
                 }}
               />
-              <p className="sst_errors">{this.state.errors.companyName}</p>
+              <div className="sst_errors">{this.state.errors.companyName}</div>
             </div>
             <button
               id="sst_submitForm"
@@ -301,7 +308,7 @@ class DetailsForm extends React.Component {
               Start your journey
             </button>
           </div>
-        </form>
+        </div>
       </div>
     );
   }

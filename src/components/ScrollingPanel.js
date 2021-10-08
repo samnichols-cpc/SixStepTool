@@ -4,20 +4,15 @@ import useWindowDimensions from "./WindowDimensions";
 const ScrollingPanel = (props) => {
   const ref = useRef(null);
   const { windowHeight, windowWidth } = useWindowDimensions();
-  const [positions, setPositions] = useState([-50, 25, 150]);
+  const [positions, setPositions] = useState([-50, 25, 100]);
 
   useEffect(() => {
     const height = props.baseRef.current.clientHeight;
-
     const heightPercentage = Math.round(
       (ref.current.clientHeight / height) * 100
     );
     if (positions[0] != -heightPercentage) {
-      setPositions([
-        -heightPercentage,
-        (100 - heightPercentage) / 2,
-        100 + heightPercentage,
-      ]);
+      setPositions([-heightPercentage, (100 - heightPercentage) / 2, 100]);
     }
   });
 

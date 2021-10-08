@@ -128,7 +128,7 @@ class LocationForm extends React.Component {
             Back
           </button>
         </div>
-        <form autoComplete="off">
+        <div autoComplete="off">
           <div
             id="sst_locationInputs"
             style={{
@@ -145,7 +145,9 @@ class LocationForm extends React.Component {
                   : "hidden",
               }}
             >
-              <h3>Hi {this.props.details.firstName}!</h3>
+              <div style={{ fontSize: "22pt" }}>
+                Hi {this.props.details.firstName}!
+              </div>
             </div>
             <div
               id="sst_locationInput"
@@ -155,7 +157,9 @@ class LocationForm extends React.Component {
                   : "hidden",
               }}
             >
-              <h3>Please let us know your location </h3>
+              <div style={{ fontSize: "22pt" }}>
+                Please let us know your location{" "}
+              </div>
               <i
                 className={
                   this.state.dropdownVisible
@@ -180,6 +184,7 @@ class LocationForm extends React.Component {
               }}
             >
               <div
+                id="sst_locationDropdownBox"
                 style={{
                   height: this.state.dropdownVisible ? "100%" : "0%",
                   transition: "height 2s",
@@ -205,19 +210,22 @@ class LocationForm extends React.Component {
                 />
                 {this.renderLocations()}
               </div>
-              <h3
+              <div
                 style={{
+                  background: "none",
+                  padding: 0,
+                  fontSize: "22pt",
                   visibility: this.props.panelProperties.visible
                     ? "visible"
                     : "hidden",
                 }}
               >
                 {this.state.location}
-              </h3>
+              </div>
             </div>
             <div id="sst_locationNext"></div>
           </div>
-        </form>
+        </div>
       </div>
     );
   }

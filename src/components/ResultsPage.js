@@ -109,9 +109,11 @@ class ResultsPage extends React.Component {
             id="sst_content"
             style={{ border: "solid 2px", padding: "20px" }}
           >
-            <h3>{this.props.details.firstName}</h3>
-            <h5>Your results are here!</h5>
-            <p>
+            <div style={{ fontSize: "22pt" }}>
+              {this.props.details.firstName}
+            </div>
+            <div style={{ fontSize: "18pt" }}>Your results are here!</div>
+            <div>
               As we look to invest in growth and recovery across the country,
               creating hubs for innovation activity is more important than ever.
               <br />
@@ -130,10 +132,10 @@ class ResultsPage extends React.Component {
               <br />
               <br />
               Based on your answers we believe you are current at stage:
-            </p>
-            <p style={{ fontWeight: "bold", color: "#fc5e36" }}>
+            </div>
+            <div style={{ fontWeight: "bold", color: "#fc5e36" }}>
               {stageContentsMap[this.props.level].name}
-            </p>
+            </div>
             {stageContentsMap[this.props.level].content}
 
             <div
@@ -147,7 +149,7 @@ class ResultsPage extends React.Component {
               Where to find out more
             </div>
 
-            <p>
+            <div>
               <br />
               Connected Places Catapult is hosting its first-ever Innovation
               Places Summit! Where some of the top place-makers and innovation
@@ -157,7 +159,7 @@ class ResultsPage extends React.Component {
               We invite you to join and meet other place-makers and innovation
               leaders, share best practice, discuss potential solutions and
               practical funding tips and ideas.
-            </p>
+            </div>
           </div>
           <div id="sst_footer" style={{ position: "relative" }}>
             <a
@@ -177,7 +179,7 @@ class ResultsPage extends React.Component {
               Register Here
             </a>
 
-            <p>
+            <div>
               Through our experience partnering with places to help unlock new
               economic potential through the adoption of new technologies and
               innovative approaches. Connected Places Catapult has created the
@@ -196,7 +198,7 @@ class ResultsPage extends React.Component {
               <br />
               <br />
               <br />
-            </p>
+            </div>
           </div>
         </div>
       </div>

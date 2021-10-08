@@ -90,7 +90,7 @@ class TermsForm extends React.Component {
             Back
           </button>
         </div>
-        <form autoComplete="off">
+        <div autoComplete="off">
           <div
             id="sst_emailInputs"
             style={{
@@ -99,23 +99,28 @@ class TermsForm extends React.Component {
                 : "hidden",
             }}
           >
-            <h5>Tool Usage</h5>
-            <p>
+            <div
+              id="sst_emailInputsTitle"
+              style={{ fontSize: "18pt", padding: "20px", paddingLeft: "0px" }}
+            >
+              Tool Usage
+            </div>
+            <div>
               Connected Places Catapult will collect, store and process the data
               requrested within this tool for commercial and marketing purposes
               in line with our data protection and privacy policies.
-            </p>
-            <p style={{ fontWeight: "bold" }}>
+            </div>
+            <div style={{ fontWeight: "bold" }}>
               We will always treat your personal data with the utmost care and
               never sell it to third parties.
               <br /> You are also welcome to unsubscribe at any time.
-            </p>
-            <p id="sst_consent">
+            </div>
+            <div id="sst_consent">
               Do you consent for your personal data to be collected and
               processed by Connected Places Catapult
               <br />
               (Please click to confirm)
-            </p>
+            </div>
             <div className="sst_termsTick" onClick={this.toggleCheck}>
               <div className="sst_tickableTerm" id="sst_terms">
                 <i
@@ -128,7 +133,7 @@ class TermsForm extends React.Component {
                   }}
                 ></i>
               </div>
-              <p>
+              <div id="sst_termsDescription">
                 I have read the above tool usage section and agree to the
                 collection, storage and use by Connected Places Catapult of my
                 data for the purpose stated and in accordance with the Connected
@@ -136,7 +141,7 @@ class TermsForm extends React.Component {
                 <span style={{ fontSize: "smaller", color: "red" }}>
                   {this.state.errors.sst_terms}
                 </span>
-              </p>
+              </div>
             </div>
             <div className="sst_termsTick" onClick={this.toggleCheck}>
               <div className="sst_tickableTerm" id="sst_updates">
@@ -150,10 +155,10 @@ class TermsForm extends React.Component {
                   }}
                 ></i>
               </div>
-              <p>
+              <div id="sst_termsDescription">
                 Would you like updates, news and events from Connected Places
                 Catapult?
-              </p>
+              </div>
             </div>
             <button
               id="sst_submitTermsForm"
@@ -168,7 +173,7 @@ class TermsForm extends React.Component {
               Get Your Results
             </button>
           </div>
-        </form>
+        </div>
       </div>
     );
   }

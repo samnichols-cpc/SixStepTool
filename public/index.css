@@ -34,10 +34,10 @@
     width: 50%;
   }
   #sst_slideable {
-    height: 50%;
-    left: 25%;
-    right: 25%;
-    width: 50%;
+    height: 65%;
+    left: 17.5%;
+    right: 17.5%;
+    width: 65%;
   }
 }
 
@@ -89,7 +89,7 @@
   background-color: #feaf9b;
   outline: none;
 }
-.sst_inputs:focus ~ div {
+.sst_inputs:focus ~ .sst_upwardSlide {
   background-color: #feaf9b !important;
   outline: none;
 }
@@ -97,7 +97,7 @@
   margin-bottom: 10px;
   position: relative;
 }
-.sst_termsTick p {
+.sst_termsTick #sst_termsDescription {
   display: inline-block;
   left: 12.5%;
   position: relative;
@@ -232,7 +232,7 @@
   position: relative;
   width: 100%;
 }
-#sst_locationDropdown div {
+#sst_locationDropdown #sst_locationDropdownBox {
   background-color: white;
   border: 2px;
   height: 100%;
@@ -243,7 +243,7 @@
   transition-timing-function: ease;
   width: 50%;
 }
-#sst_locationDropdown div a {
+#sst_locationDropdown #sst_locationDropdownBox a {
   border: solid #ededed;
   color: black;
   cursor: pointer;
@@ -251,10 +251,10 @@
   padding: 2px;
   width: 100%;
 }
-#sst_locationDropdown div a:hover {
+#sst_locationDropdown #sst_locationDropdownBox a:hover {
   background-color: #ededed;
 }
-#sst_locationDropdown div input {
+#sst_locationDropdown #sst_locationDropdownBox input {
   display: block;
   padding: 5px;
   width: 100%;
@@ -364,6 +364,9 @@
   position: absolute;
   top: 5%;
   width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #sst_resultsPage {
   height: 100%;

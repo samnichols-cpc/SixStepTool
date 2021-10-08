@@ -236,6 +236,8 @@ class Panel extends React.Component {
                     left: "5%",
                     cursor: "pointer",
                     padding: "5px",
+                    display: "flex",
+                    alignItems: "center",
                     top:
                       30 +
                       i *

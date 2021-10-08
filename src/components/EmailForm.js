@@ -109,7 +109,7 @@ class EmailForm extends React.Component {
             Back
           </button>
         </div>
-        <form autoComplete="off" id="sst_emailForm">
+        <div autoComplete="off" id="sst_emailForm">
           <div
             id="sst_emailInputs"
             style={{
@@ -149,7 +149,7 @@ class EmailForm extends React.Component {
                     : "hidden",
                 }}
               />
-              <p className="sst_errors">{this.state.errors.email}</p>
+              <div className="sst_errors">{this.state.errors.email}</div>
             </div>
             <div id="sst_confirmEmailInput" className="sst_inputDiv">
               <input
@@ -167,7 +167,7 @@ class EmailForm extends React.Component {
                 }}
               />
               <div className="sst_upwardSlide" />
-              <p className="sst_errors">{this.state.errors.confirmEmail}</p>
+              <div className="sst_errors">{this.state.errors.confirmEmail}</div>
             </div>
 
             <button
@@ -182,7 +182,7 @@ class EmailForm extends React.Component {
               Submit
             </button>
           </div>
-        </form>
+        </div>
       </div>
     );
   }
