@@ -1,3 +1,3 @@
 cd ./build
 
-serve -l 80
+sudo serve -l 80
