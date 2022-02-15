@@ -101,7 +101,7 @@ class App extends React.Component {
             },
           };
         });
-      }, 2000);
+      }, 1500);
     } else if (this.state.panel2.position === 1) {
       this.setState((prevState) => {
         return {
@@ -138,7 +138,7 @@ class App extends React.Component {
             },
           };
         });
-      }, 2000);
+      }, 1500);
     } else if (this.state.panel3.position === 1) {
       this.setState((prevState) => {
         return {
@@ -175,7 +175,7 @@ class App extends React.Component {
             },
           };
         });
-      }, 2000);
+      }, 1500);
     }
   };
 
@@ -224,7 +224,7 @@ class App extends React.Component {
             },
           };
         });
-      }, 2000);
+      }, 1500);
     } else if (this.state.panel2.position === 1) {
       this.setState((prevState) => {
         return {
@@ -261,7 +261,7 @@ class App extends React.Component {
             },
           };
         });
-      }, 2000);
+      }, 1500);
     } else if (this.state.panel3.position === 1) {
       this.setState((prevState) => {
         return {
@@ -299,7 +299,7 @@ class App extends React.Component {
             },
           };
         });
-      }, 2000);
+      }, 1500);
     }
   };
 

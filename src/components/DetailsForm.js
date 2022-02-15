@@ -136,6 +136,7 @@ class DetailsForm extends React.Component {
                   position: "absolute",
                   zIndex: 2,
                   padding: "10px",
+                  lineHeight: "22pt",
                   fontSize: "22pt",
                   visibility: this.props.panelProperties.visible
                     ? "visible"

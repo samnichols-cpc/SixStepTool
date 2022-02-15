@@ -14,6 +14,12 @@ const ScrollingPanel = (props) => {
     if (positions[0] != -heightPercentage) {
       setPositions([-heightPercentage, (100 - heightPercentage) / 2, 100]);
     }
+
+    setTimeout(() => {
+      if (positions[0] != -heightPercentage) {
+        setPositions([-heightPercentage, (100 - heightPercentage) / 2, 100]);
+      }
+    }, 200);
   });
 
   return (
