@@ -92,7 +92,7 @@ class TermsForm extends React.Component {
         </div>
         <div autoComplete="off">
           <div
-            id="sst_emailInputs"
+            id="sst_termsContainer"
             style={{
               visibility: this.props.panelProperties.visible
                 ? "visible"
