@@ -1,3 +1,3 @@
 cd ./build
 
-sudo serve -l 80
+sudo serve -l 443
